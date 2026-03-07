@@ -171,7 +171,7 @@ export function Board({
                 <th className="px-6 py-3 text-center text-sm text-gray-700 w-20">
                   No.
                 </th>
-                <th className="px-6 py-3 text-left text-sm text-gray-700">
+                <th className="px-6 py-3 text-center text-sm text-gray-700">
                   제목
                 </th>
                 <th className="px-6 py-3 text-center text-sm text-gray-700 w-32">
@@ -192,7 +192,7 @@ export function Board({
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
                     {notice.no}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800">
+                  <td className="px-6 py-4 text-sm text-gray-800 text-center">
                     {notice.title}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
@@ -242,7 +242,7 @@ export function Board({
           id="board-news-title"
           className="text-2xl text-[var(--color-opera-burgundy)] mb-6 border-b-2 border-[var(--color-opera-gold)] pb-2"
         >
-          뉴스
+          뉴스목록
         </h2>
         
         {/* Search Bar */}
@@ -270,14 +270,14 @@ export function Board({
                 <th className="px-6 py-3 text-center text-sm text-gray-700 w-20">
                   No.
                 </th>
-                <th className="px-6 py-3 text-left text-sm text-gray-700">
+                <th className="px-6 py-3 text-center text-sm text-gray-700">
                   제목
                 </th>
                 <th className="px-6 py-3 text-center text-sm text-gray-700 w-32">
-                  게재일
+                  언론사
                 </th>
-                <th className="px-6 py-3 text-center text-sm text-gray-700 w-24">
-                  조회수
+                <th className="px-6 py-3 text-center text-sm text-gray-700 w-32">
+                  게재일
                 </th>
               </tr>
             </thead>
@@ -286,17 +286,17 @@ export function Board({
                 <tr
                   key={item.no}
                   className="hover:bg-gray-50 transition-colors cursor-pointer"
-                  onClick={() => onSelectNews && onSelectNews(item.no)}
+                  onClick={() => window.open(item.url, '_blank')}
                 >
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">{item.no}</td>
-                  <td className="px-6 py-4 text-sm text-gray-800">
+                  <td className="px-6 py-4 text-sm text-gray-800 text-center">
                     {item.title}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
-                    {item.date}
+                    {item.publisher}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
-                    {viewCounts[`news-${item.no}`] || item.views}
+                    {item.date}
                   </td>
                 </tr>
               ))}
@@ -310,17 +310,14 @@ export function Board({
             <div
               key={item.no}
               className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
-              onClick={() => onSelectNews && onSelectNews(item.no)}
+              onClick={() => window.open(item.url, '_blank')}
             >
               <h3 className="text-gray-800 mb-2 leading-snug">
                 {item.title}
               </h3>
-              <div className="flex items-center justify-between text-sm text-gray-500">
-                <span>{item.date}</span>
-                <div className="flex items-center gap-1">
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>{viewCounts[`news-${item.no}`] || item.views}</span>
-                </div>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-[var(--color-opera-burgundy)] font-medium">{item.publisher}</span>
+                <span className="text-gray-500">{item.date}</span>
               </div>
             </div>
           ))}

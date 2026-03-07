@@ -2578,3 +2578,19 @@ a {
   inherits: false;
   initial-value: 1;
 }
+
+/* Prevent text selection and scraping */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}

@@ -22,7 +22,7 @@ export function News({ onSelectNews, onViewAll }: NewsProps) {
           {displayNews.map((item) => (
             <article
               key={item.no}
-              onClick={() => onSelectNews && onSelectNews(item.no)}
+              onClick={() => window.open(item.url, '_blank')}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-200 cursor-pointer"
             >
               <div className="relative h-64 overflow-hidden">
@@ -34,13 +34,12 @@ export function News({ onSelectNews, onViewAll }: NewsProps) {
               </div>
               
               <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">{item.date}</p>
-                <h3 className="mb-3">{item.title}</h3>
-                <p className="text-gray-600 mb-4">{item.excerpt}</p>
-                <button className="flex items-center text-[var(--color-opera-burgundy)] hover:text-[var(--color-opera-dark)] transition-colors">
-                  <span className="mr-2">자세히 보기</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                <div className="flex items-center text-sm text-gray-500 mb-2">
+                  <span className="font-semibold text-[var(--color-opera-burgundy)] mr-2">{item.publisher}</span>
+                  <span>{item.date}</span>
+                </div>
+                <h3 className="mb-3 line-clamp-1">{item.title}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-2">{item.excerpt}</p>
               </div>
             </article>
           ))}

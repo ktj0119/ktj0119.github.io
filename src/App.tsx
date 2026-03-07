@@ -11,7 +11,6 @@ import { ConcertDetail } from './components/ConcertDetail';
 import { PhotoGalleryModal } from './components/PhotoGalleryModal';
 import { Board } from './components/Board';
 import { NoticeDetail } from './components/NoticeDetail';
-import { NewsDetail } from './components/NewsDetail';
 import { MagazineDetail } from './components/MagazineDetail';
 import { Sponsorship } from './components/Sponsorship';
 import { Inquiry } from './components/Inquiry';
@@ -20,14 +19,13 @@ import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { Admin } from './components/Admin';
 import { useEffect, useState } from 'react';
 
-type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'news-detail' | 'magazine-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
+type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'magazine-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
 
 // Main App Component
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedConcertId, setSelectedConcertId] = useState<number | null>(null);
   const [selectedNoticeId, setSelectedNoticeId] = useState<number | null>(null);
-  const [selectedNewsId, setSelectedNewsId] = useState<number | null>(null);
   const [selectedMagazineId, setSelectedMagazineId] = useState<number | null>(null);
   const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
   const [previousPage, setPreviousPage] = useState<Page>('home'); // Track previous page for back navigation
@@ -38,6 +36,28 @@ export default function App() {
   // Store pagination state for Board page
   const [boardNoticePage, setBoardNoticePage] = useState(1);
   const [boardNewsPage, setBoardNewsPage] = useState(1);
+
+  // Prevent right-click and scraping shortcuts
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Keep blocking only Ctrl+C for basic scrap prevention
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   // 해시(#page) 기반으로 브라우저 뒤로가기 연동
   useEffect(() => {
@@ -50,7 +70,6 @@ export default function App() {
         'concert-detail',
         'board',
         'notice-detail',
-        'news-detail',
         'magazine-detail',
         'sponsorship',
         'inquiry',
@@ -109,11 +128,6 @@ export default function App() {
     handleNavigate('notice-detail');
   };
 
-  const handleSelectNews = (newsId: number) => {
-    setSelectedNewsId(newsId);
-    handleNavigate('news-detail');
-  };
-
   const handleViewAllNotices = () => {
     setScrollToBoardNotice(true);
     handleNavigate('board');
@@ -152,7 +166,6 @@ export default function App() {
               onViewAll={handleViewAllNotices}
             />
             <News 
-              onSelectNews={handleSelectNews} 
               onViewAll={handleViewAllNews}
             />
           </>
@@ -171,7 +184,6 @@ export default function App() {
         {currentPage === 'board' && (
           <Board 
             onSelectNotice={handleSelectNotice}
-            onSelectNews={handleSelectNews}
             onSelectMagazine={handleSelectMagazine}
             viewCounts={viewCounts}
             noticePage={boardNoticePage}
@@ -185,13 +197,6 @@ export default function App() {
         {currentPage === 'notice-detail' && selectedNoticeId && (
           <NoticeDetail
             noticeId={selectedNoticeId}
-            onBack={() => handleNavigate('board')}
-            onViewIncrement={handleIncrementViewCount}
-          />
-        )}
-        {currentPage === 'news-detail' && selectedNewsId && (
-          <NewsDetail
-            newsId={selectedNewsId}
             onBack={() => handleNavigate('board')}
             onViewIncrement={handleIncrementViewCount}
           />
