@@ -15,10 +15,12 @@ import { NewsDetail } from './components/NewsDetail';
 import { MagazineDetail } from './components/MagazineDetail';
 import { Sponsorship } from './components/Sponsorship';
 import { Inquiry } from './components/Inquiry';
+import { TermsOfUse } from './components/TermsOfUse';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { Admin } from './components/Admin';
 import { useEffect, useState } from 'react';
 
-type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'news-detail' | 'magazine-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo';
+type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'news-detail' | 'magazine-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
 
 // Main App Component
 export default function App() {
@@ -54,6 +56,8 @@ export default function App() {
         'inquiry',
         'admin',
         'carousel-demo',
+        'terms-of-use',
+        'privacy-policy',
       ];
       return validPages.includes(hash as Page) ? (hash as Page) : 'home';
     };
@@ -203,8 +207,14 @@ export default function App() {
         {currentPage === 'inquiry' && <Inquiry />}
         {currentPage === 'admin' && <Admin />}
         {currentPage === 'carousel-demo' && <PerformanceCarousel />}
+        {currentPage === 'terms-of-use' && (
+          <TermsOfUse onBack={() => handleNavigate(previousPage)} />
+        )}
+        {currentPage === 'privacy-policy' && (
+          <PrivacyPolicy onBack={() => handleNavigate(previousPage)} />
+        )}
       </main>
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
       
       {/* Photo Gallery Modal */}
       <PhotoGalleryModal

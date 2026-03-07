@@ -21,7 +21,6 @@ export function NoticeBoard({ onSelectNotice, onViewAll }: NoticeBoardProps) {
 
   // Combine: pinned first, then regular
   const displayNotices = [...pinnedNotices, ...regularNotices];
-  const hasAnyNotice = notices.length > 0;
 
   return (
     <section className="py-16 bg-[var(--color-opera-cream)]">
@@ -32,48 +31,37 @@ export function NoticeBoard({ onSelectNotice, onViewAll }: NoticeBoardProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {!hasAnyNotice ? (
-            <div className="col-span-1 md:col-span-2">
-              <div className="bg-white rounded-lg p-6 border border-dashed border-gray-300 text-center text-gray-500">
-                현재 등록된 공지사항이 없습니다.
-              </div>
-            </div>
-          ) : (
-            // 공지사항이 한 개 이상이면 항상 4개의 박스를 표시
-            Array.from({ length: 4 }).map((_, index) => {
-              const notice = displayNotices[index];
+          {Array.from({ length: 4 }).map((_, index) => {
+            const notice = displayNotices[index];
 
-              if (!notice) {
-                // 남는 박스는 플레이스홀더로 표시
-                return (
-                  <div
-                    key={`placeholder-${index}`}
-                    className="bg-white rounded-lg p-6 border border-dashed border-gray-200 text-center text-gray-400"
-                  >
-                    곧 공지가 등록될 예정입니다.
-                  </div>
-                );
-              }
-
+            if (!notice) {
+              // 남는 박스는 빈 박스로 표시 (동일한 높이와 스타일 유지)
               return (
                 <div
-                  key={notice.no}
-                  onClick={() => onSelectNotice && onSelectNotice(notice.no)}
-                  className={`bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow cursor-pointer ${
-                    notice.isPinned ? 'border-2 border-[var(--color-opera-gold)]' : 'border border-gray-200'
-                  }`}
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="flex-1">{notice.title}</h3>
-                    {notice.isPinned && (
-                      <Pin className="w-5 h-5 text-[var(--color-opera-gold)] flex-shrink-0 ml-2" />
-                    )}
-                  </div>
-                  <p className="text-sm text-gray-500">{notice.date}</p>
-                </div>
+                  key={`placeholder-${index}`}
+                  className="bg-white rounded-lg p-6 shadow-md border border-gray-200 h-32"
+                />
               );
-            })
-          )}
+            }
+
+            return (
+              <div
+                key={notice.no}
+                onClick={() => onSelectNotice && onSelectNotice(notice.no)}
+                className={`bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all cursor-pointer h-32 flex flex-col justify-between ${
+                  notice.isPinned ? 'border-2 border-[var(--color-opera-gold)]' : 'border border-gray-200'
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <h3 className="flex-1 line-clamp-1 font-semibold text-gray-900">{notice.title}</h3>
+                  {notice.isPinned && (
+                    <Pin className="w-5 h-5 text-[var(--color-opera-gold)] flex-shrink-0 ml-2" />
+                  )}
+                </div>
+                <p className="text-sm text-gray-500">{notice.date}</p>
+              </div>
+            );
+          })}
         </div>
 
         {onViewAll && (

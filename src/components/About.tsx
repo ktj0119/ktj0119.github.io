@@ -82,7 +82,7 @@ export function About() {
           <div className="relative">
             <div className="space-y-4 text-gray-700 pr-8 md:pr-12 lg:pr-16">
               <p>
-                대전오페라단은 36년 이상의 제작 경험을 바탕으로 국내 오페라 공연의 수준을 국제적인 수준으로 끌어올리기 위해 끊임없이 노력하고 있습니다. 이를 위해 전문 아티스트를 위한 무대 제공과 인재 발굴을 통해 수준 높은 공연 문화를 정착시키는데 힘쓰고 있으며, 권위 있는 제14회 대한민국 오페라축제에 초청된 유일한 민간 오페라단입니다.
+                대전오페라단은 37년의 제작 경험을 바탕으로 국내 오페라 공연의 수준을 국제적인 수준으로 끌어올리기 위해 끊임없이 노력하고 있습니다. 이를 위해 전문 아티스트를 위한 무대 제공과 인재 발굴을 통해 수준 높은 공연 문화를 정착시키는데 힘쓰고 있으며, 권위 있는 제14회 대한민국 오페라축제에 초청된 유일한 민간 오페라단입니다.
               </p>
               <p>
                 국제 문화교류의 중심단체로서 선도적 역할을 하고 있으며, 특히 몽골과의 문화예술 교류를 통해 국제문화교류의 중심단체로서의 역할을 더욱 강화하고 있습니다.
@@ -104,7 +104,7 @@ export function About() {
             <div className="float-left mr-6 mb-4">
               <img
                 src="https://images.unsplash.com/photo-1699521376652-a5666c8552fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGNvbmR1Y3RvcnxlbnwxfHx8fDE3NjY2NDEwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="단장 김성철"
+                alt="단장 지은주"
                 className="w-32 h-32 object-cover rounded-lg shadow-md"
               />
             </div>
@@ -114,7 +114,7 @@ export function About() {
               </p>
               <p>
                 대전오페라단은 오페라 예술의 아름다움을 더 많은 분들과 나누고자
-                하는 열정으로 지난 35년간 걸어왔습니다.
+                하는 열정으로 지난 37년간 걸어왔습니다.
               </p>
               <p>
                 우리는 단순히 공연을 올리는 것을 넘어, 관객 여러분께 깊은 감동과
@@ -128,7 +128,7 @@ export function About() {
               </p>
               <p className="mt-6 text-right clear-both">
                 <span className="block">감사합니다.</span>
-                <span className="block mt-2">대전오페라단 단장 김성철</span>
+                <span className="block mt-2">대전오페라단 단장 지은주</span>
               </p>
             </div>
           </div>
@@ -142,12 +142,21 @@ export function About() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="border-l-4 border-[var(--color-opera-burgundy)] pl-6 py-2">
               <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
+                2025
+              </h3>
+              <ul className="space-y-1 text-gray-700">
+                <li>• 대전오페라단과 함께하는 코레일 신년음악회</li>
+                <li>• 제36회 정기공연 오페라 '나비부인'</li>
+              </ul>
+            </div>
+
+            <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
+              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
                 2024
               </h3>
               <ul className="space-y-1 text-gray-700">
-                <li>• 창단 36주년 기념 갈라 콘서트</li>
-                <li>• 정기공연 「라 트라비아타」</li>
-                <li>• 시민과 함께하는 야외 오페라 축제</li>
+                <li>• 대전오페라단과 함께하는 코레일 음악회</li>
+                <li>• 공연예술창작신작 올해의 신작 창작오페라 '이상의 날개'</li>
               </ul>
             </div>
 
@@ -156,37 +165,29 @@ export function About() {
                 2023
               </h3>
               <ul className="space-y-1 text-gray-700">
-                <li>• 정기공연 「카르멘」</li>
-                <li>• 특별공연 「투란도트」</li>
-                <li>• 대전 문화예술대상 수상</li>
+                <li>• 제35회 정기공연 오페라 '카발레리아 루스티카나&팔리아치'</li>
               </ul>
             </div>
 
             <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
               <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                2020
+                2022
               </h3>
               <ul className="space-y-1 text-gray-700">
-                <li>• 문화체육관광부 우수공연단체 선정</li>
-                <li>• 온라인 스트리밍 콘서트 시리즈 시작</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
-              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                1988
-              </h3>
-              <ul className="space-y-1 text-gray-700">
-                <li>• 대전오페라단 창단</li>
-                <li>• 창단 공연 「라 보엠」</li>
+                <li>• 렉쳐콘서트 오페라 '리골레또'</li>
+                <li>• 제1회 대전오페라단 국제 성악 콩쿨 개최</li>
+                <li>• 제34회 정기공연 오페라 '마술피리'</li>
+                <li>• 창작오페라 '이상의날개' 쇼케이스</li>
               </ul>
             </div>
           </div>
 
-          <button className="mt-6 flex items-center gap-2 px-6 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors">
-            <FileText className="w-4 h-4" />
-            <span>전체 연혁 보기</span>
-          </button>
+          <div className="flex justify-center mt-12">
+            <button className="flex items-center gap-2 px-8 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors">
+              <FileText className="w-4 h-4" />
+              <span>전체 연혁 보기</span>
+            </button>
+          </div>
         </section>
 
         {/* Organization Chart Section */}
@@ -197,67 +198,29 @@ export function About() {
           <div className="bg-white border border-gray-200 rounded-lg p-8">
             <div className="space-y-8">
               {/* Top Level */}
-              <div className="text-center">
-                <div className="inline-block bg-[var(--color-opera-burgundy)] text-white px-8 py-4 rounded">
-                  <div className="mb-1">단장</div>
-                  <div className="text-sm">김성철</div>
+              <div className="text-center mb-12">
+                <div className="inline-block bg-[var(--color-opera-burgundy)] text-white px-8 py-4 rounded shadow-md">
+                  <div className="mb-1 font-bold">단장</div>
+                  <div className="text-sm">지은주</div>
                 </div>
               </div>
 
-              {/* Second Level */}
-              <div className="flex justify-center gap-4">
-                <div className="text-center">
-                  <div className="bg-[var(--color-opera-gold)] text-white px-6 py-3 rounded">
-                    <div className="mb-1">예술감독</div>
-                    <div className="text-sm">박예술</div>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-[var(--color-opera-gold)] text-white px-6 py-3 rounded">
-                    <div className="mb-1">사무국장</div>
-                    <div className="text-sm">이행정</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Third Level */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="text-center">
-                  <div className="bg-gray-100 border border-gray-300 px-4 py-3 rounded">
-                    <div className="mb-2">음악팀</div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <div>정화음</div>
-                      <div>최선율</div>
+              {/* Sub Teams - White background with black-ish text, in a single row */}
+              <div className="flex flex-wrap lg:flex-nowrap justify-center gap-4">
+                {[
+                  { name: '고    문', leader: '최남인' },
+                  { name: '사무국장', leader: '박미란' },
+                  { name: '기    획', leader: '송상우' },
+                  { name: '홍    보', leader: '고도현' },
+                  { name: '회    계', leader: '박영애' },
+                ].map((team) => (
+                  <div key={team.name} className="flex-shrink-0">
+                    <div className="bg-white border border-gray-200 px-6 py-4 rounded shadow-sm text-center min-w-[140px]">
+                      <div className="mb-1 font-bold text-gray-900">{team.name}</div>
+                      <div className="text-sm text-gray-600">{team.leader}</div>
                     </div>
                   </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-gray-100 border border-gray-300 px-4 py-3 rounded">
-                    <div className="mb-2">연출팀</div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <div>강무대</div>
-                      <div>윤연기</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-gray-100 border border-gray-300 px-4 py-3 rounded">
-                    <div className="mb-2">기획팀</div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <div>송기획</div>
-                      <div>한준비</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-gray-100 border border-gray-300 px-4 py-3 rounded">
-                    <div className="mb-2">총무팀</div>
-                    <div className="text-sm text-gray-600 space-y-1">
-                      <div>오관리</div>
-                      <div>임회계</div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

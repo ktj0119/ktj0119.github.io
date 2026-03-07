@@ -11,12 +11,12 @@ export function Inquiry() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Here you would normally send the form data to a backend
     // For now, we'll just show a success message
     console.log('Form submitted:', formData);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -152,16 +152,13 @@ export function Inquiry() {
 
           {/* Contact Info */}
           <div className="mt-8 bg-white rounded-lg shadow-md p-6 text-center">
-            <h3 className="mb-4 text-[var(--color-opera-burgundy)]">직접 연락하기</h3>
+            <h3 className="mb-4 text-[var(--color-opera-burgundy)]">상세 문의</h3>
             <div className="space-y-2 text-gray-700">
               <p>
-                <strong>전화:</strong> 042-123-4567 (평일 09:00 - 18:00)
+                <strong>전화:</strong> 010-6353-9008 (평일 09:00 - 18:00)
               </p>
               <p>
-                <strong>이메일:</strong> contact@daejeonopera.kr
-              </p>
-              <p className="text-sm text-gray-500 mt-4">
-                급하신 문의는 전화로 연락 주시기 바랍니다.
+                <strong>이메일:</strong> daejeonopera@gmail.com
               </p>
             </div>
           </div>

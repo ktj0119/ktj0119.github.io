@@ -96,12 +96,9 @@ export function Sponsorship() {
       {/* Sponsorship Levels */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-[var(--color-opera-burgundy)] mb-4">
-            후원 등급 안내
+          <h2 className="text-center text-[var(--color-opera-burgundy)] mb-12">
+            대전오페라단 후원회원 안내
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            후원 금액에 따라 다양한 혜택을 드립니다
-          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {sponsorshipLevels.map((tier, index) => (
@@ -133,71 +130,25 @@ export function Sponsorship() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-[var(--color-opera-burgundy)] mb-12">
-            후원 방법
+            후원 신청 방법
           </h2>
 
           <div className="bg-[var(--color-opera-cream)] rounded-lg p-8 mb-8">
-            <h3 className="mb-6 text-[var(--color-opera-burgundy)]">계좌 이체</h3>
-            <div className="space-y-3 text-gray-700">
-              <p className="text-lg">
-                <strong>은행:</strong> 국민은행
+            <div className="space-y-4 text-gray-700">
+              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
+                <strong className="sm:w-60 flex-shrink-0">자동이체(CMS)</strong>
+                <span className="flex-1">매월 정기적으로 원하시는 만큼 후원하는 방법</span>
               </p>
-              <p className="text-lg">
-                <strong>계좌번호:</strong> 123-456-789012
+              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
+                <strong className="sm:w-60 flex-shrink-0">무통장 입금 및 계좌이체</strong>
+                <span className="flex-1">지은주(대전오페라단) 국민 468401-04-201402</span>
               </p>
-              <p className="text-lg">
-                <strong>예금주:</strong> 대전오페라단
+              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
+                <strong className="sm:w-60 flex-shrink-0">후원 문의</strong>
+                <span className="flex-1">담당 010-6553-9008</span>
               </p>
             </div>
-            <p className="mt-4 text-sm text-gray-600">
-              ※ 후원금 입금 후 연락 주시면 기부금 영수증을 발급해 드립니다.
-            </p>
           </div>
-
-          <div className="bg-[var(--color-opera-cream)] rounded-lg p-8">
-            <h3 className="mb-6 text-[var(--color-opera-burgundy)]">문의하기</h3>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <Phone className="w-5 h-5 text-[var(--color-opera-burgundy)] mr-3 mt-1" />
-                <div>
-                  <p className="text-gray-700">
-                    <strong>전화:</strong> 042-123-4567
-                  </p>
-                  <p className="text-sm text-gray-600">평일 09:00 - 18:00</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <Mail className="w-5 h-5 text-[var(--color-opera-burgundy)] mr-3 mt-1" />
-                <div>
-                  <p className="text-gray-700">
-                    <strong>이메일:</strong> sponsor@daejeonopera.kr
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <MapPin className="w-5 h-5 text-[var(--color-opera-burgundy)] mr-3 mt-1" />
-                <div>
-                  <p className="text-gray-700">
-                    <strong>주소:</strong> 대전광역시 중구 대종로 123 오페라하우스
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tax Benefits */}
-      <section className="py-16 bg-gradient-to-r from-[var(--color-opera-burgundy)] to-[var(--color-opera-dark)] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="mb-6 text-white">세제 혜택 안내</h2>
-          <p className="text-lg mb-4 text-white/90">
-            대전오페라단은 문화예술진흥법에 따른 지정기부금 단체입니다.
-          </p>
-          <p className="text-white/90 max-w-2xl mx-auto">
-            개인 후원자는 기부금액의 15~30%, 법인 후원자는 10%를 소득공제 또는 세액공제 받으실 수 있습니다.
-            기부금 영수증은 연말정산 시 제출하시면 됩니다.
-          </p>
         </div>
       </section>
     </div>

@@ -333,7 +333,7 @@ export function Board({
         />
       </section>
 
-      {/* Magazine Section */}
+      {/* Magazine Section - Hidden as requested
       <section className="mb-16">
         <h2 className="text-2xl text-[var(--color-opera-burgundy)] mb-6 border-b-2 border-[var(--color-opera-gold)] pb-2">
           매거진
@@ -360,6 +360,7 @@ export function Board({
           ))}
         </div>
       </section>
+      */}
     </div>
   );
 }

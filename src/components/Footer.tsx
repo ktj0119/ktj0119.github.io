@@ -8,7 +8,11 @@ import {
   User,
 } from "lucide-react";
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: any) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-[var(--color-opera-dark)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -88,18 +92,24 @@ export function Footer() {
               <ul className="space-y-2 text-sm mt-[21px] mr-[0px] mb-[0px] ml-[0px] text-[15px]">
                 <li>
                   <a
-                    href="#"
+                    href="#terms-of-use"
                     className="text-gray-300 hover:text-white transition-colors font-bold"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate?.('terms-of-use');
+                    }}
                   >
                     이용약관
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#privacy-policy"
                     className="text-gray-300 hover:text-white transition-colors font-bold"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate?.('privacy-policy');
+                    }}
                   >
                     개인정보처리방침
                   </a>
