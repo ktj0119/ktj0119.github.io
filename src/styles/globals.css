@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --color-opera-burgundy: #8B0000;
+  --color-opera-gold: #D4AF37;
+  --color-opera-dark: #1a0a0a;
+  --color-opera-cream: #FFF8F0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #333;
+  background-color: white;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-in-out;
+}
