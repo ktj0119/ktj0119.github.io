@@ -59,7 +59,7 @@
           "dev": "vite --open chrome",
           "build": "vite build",
           "push-source": "git add . && git commit -m \"Site update\" && git push origin source",
-          "deploy": "npm run build && git config --global --add safe.directory \"D:/Opera Site/build\" && cd build && git init && git add . && git commit -m \"Update website deployment\" && git push -f https://github.com/ktj0119/ktj0119.github.io.git master:main && cd ..",
+          "deploy": "npm run build && git config --global --add safe.directory \"D:/Opera Site/build\" && cd build && git init && git add . && git commit --allow-empty -m \"Update website deployment\" && git push -f https://github.com/ktj0119/ktj0119.github.io.git master:main && cd ..",
           "full-deploy": "npm run push-source && npm run deploy"
       }
   }
