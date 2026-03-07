@@ -58,7 +58,7 @@
       "scripts": {
           "dev": "vite --open chrome",
           "predeploy": "npm run build",
-          "deploy": "gh-pages -d build",
+          "deploy": "gh-pages -b main -d build",
           "build": "vite build"
       }
   }
