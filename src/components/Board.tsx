@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Eye, Search } from "lucide-react";
-import { notices, news, magazines } from "../data/boardData";
+import { notices, news } from "../data/boardData";
 
 interface BoardProps {
   onSelectNotice?: (noticeId: number) => void;
   onSelectNews?: (newsId: number) => void;
-  onSelectMagazine?: (magazineId: number) => void;
   viewCounts?: Record<string, number>;
   noticePage?: number;
   setNoticePage?: (page: number) => void;
@@ -18,7 +17,6 @@ interface BoardProps {
 export function Board({ 
   onSelectNotice, 
   onSelectNews, 
-  onSelectMagazine, 
   viewCounts = {},
   noticePage: propNoticePage,
   setNoticePage: propSetNoticePage,
@@ -329,35 +327,6 @@ export function Board({
           onPageChange={setNewsPage}
         />
       </section>
-
-      {/* Magazine Section - Hidden as requested
-      <section className="mb-16">
-        <h2 className="text-2xl text-[var(--color-opera-burgundy)] mb-6 border-b-2 border-[var(--color-opera-gold)] pb-2">
-          매거진
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {magazines.map((magazine) => (
-            <div
-              key={magazine.id}
-              className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
-              onClick={() => onSelectMagazine && onSelectMagazine(magazine.id)}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={magazine.thumbnail}
-                  alt={magazine.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-gray-800 mb-2">{magazine.title}</h3>
-                <p className="text-sm text-gray-500">{magazine.date}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      */}
     </div>
   );
 }

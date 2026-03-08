@@ -23,23 +23,15 @@ export function News({ onSelectNews, onViewAll }: NewsProps) {
             <article
               key={item.no}
               onClick={() => window.open(item.url, '_blank')}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-200 cursor-pointer"
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-200 cursor-pointer p-6"
             >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+              <div className="flex items-center text-sm text-gray-500 mb-3">
+                <span className="font-semibold text-[var(--color-opera-burgundy)] mr-2">{item.publisher}</span>
+                <span>{item.date}</span>
               </div>
-              
-              <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 mb-2">
-                  <span className="font-semibold text-[var(--color-opera-burgundy)] mr-2">{item.publisher}</span>
-                  <span>{item.date}</span>
-                </div>
-                <h3 className="mb-3 line-clamp-1">{item.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{item.excerpt}</p>
+              <h3 className="mb-4 line-clamp-2 font-bold text-gray-900 group-hover:text-[var(--color-opera-burgundy)] transition-colors min-h-[3.5rem] flex items-center">{item.title}</h3>
+              <div className="flex items-center text-[var(--color-opera-burgundy)] font-medium text-sm">
+                기사 보러가기 <ArrowRight className="w-4 h-4 ml-1" />
               </div>
             </article>
           ))}

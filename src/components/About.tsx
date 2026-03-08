@@ -88,7 +88,7 @@ export function About() {
                 국제 문화교류의 중심단체로서 선도적 역할을 하고 있으며, 특히 몽골과의 문화예술 교류를 통해 국제문화교류의 중심단체로서의 역할을 더욱 강화하고 있습니다.
               </p>
               <p>
-                대전 지역 소외계층과 소외계층에게 문화예술을 접할 수 있는 기회를 제공하기 위해 무료 또는 할인 입장권을 제공하고 있으며, 기업과 함께 각종 단체에 입장권 기부 등을 통한 사회공헌 활동을 전개하고 있습니다. 앞으로도 예술적 열정과 역량을 기반으로 일반관객과 클래식 음악 애호가들 뿐 아니라 국제적인 활동 무대까지 확장해 나가 대한민국을 대표하는 원천이 되고, 국제문화교류의 중심지로 더욱 발전해 나갈 것입니다.
+                대전 지역 소외계층에게 문화예술을 접할 수 있는 기회를 제공하기 위해 무료 또는 할인 입장권을 제공하고 있으며, 기업과 함께 각종 단체에 입장권 기부 등을 통한 사회공헌 활동을 전개하고 있습니다. 앞으로도 예술적 열정과 역량을 기반으로 일반관객과 클래식 음악 애호가들 뿐 아니라 국제적인 활동 무대까지 확장해 나가 대한민국을 대표하는 원천이 되고, 국제문화교류의 중심지로 더욱 발전해 나갈 것입니다.
               </p>
             </div>
           </div>
@@ -103,7 +103,7 @@ export function About() {
             {/* Director Portrait */}
             <div className="float-left mr-6 mb-4">
               <img
-                src="https://images.unsplash.com/photo-1699521376652-a5666c8552fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGNvbmR1Y3RvcnxlbnwxfHx8fDE3NjY2NDEwNzB8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                src="/images/intro_propile.png"
                 alt="단장 지은주"
                 className="w-32 h-32 object-cover rounded-lg shadow-md"
               />
@@ -182,12 +182,12 @@ export function About() {
             </div>
           </div>
 
-          <div className="flex justify-center mt-12">
+          {/* <div className="flex justify-center mt-12">
             <button className="flex items-center gap-2 px-8 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors">
               <FileText className="w-4 h-4" />
               <span>전체 연혁 보기</span>
             </button>
-          </div>
+          </div> */}
         </section>
 
         {/* Organization Chart Section */}
@@ -208,16 +208,23 @@ export function About() {
               {/* Sub Teams - White background with black-ish text, in a single row */}
               <div className="flex flex-wrap lg:flex-nowrap justify-center gap-4">
                 {[
-                  { name: '고    문', leader: '최남인' },
+                  { name: '고    문', leader: '최남인, 염홍철, 김낙관' },
                   { name: '사무국장', leader: '박미란' },
                   { name: '기    획', leader: '송상우' },
-                  { name: '홍    보', leader: '고도현' },
+                  { name: '홍    보', leader: '고도현, 이서현' },
                   { name: '회    계', leader: '박영애' },
                 ].map((team) => (
                   <div key={team.name} className="flex-shrink-0">
-                    <div className="bg-white border border-gray-200 px-6 py-4 rounded shadow-sm text-center min-w-[140px]">
-                      <div className="mb-1 font-bold text-gray-900">{team.name}</div>
-                      <div className="text-sm text-gray-600">{team.leader}</div>
+                    <div 
+                      className="bg-white border border-gray-500 px-2 py-6 rounded shadow-sm text-center flex flex-col"
+                      style={{ width: '160px', height: '160px', minWidth: '160px', minHeight: '160px' }}
+                    >
+                      <div className="mb-3 font-bold text-gray-100 border-b border-gray-100 pb-2 mx-2">{team.name}</div>
+                      <div className="text-sm text-gray-600 space-y-1 px-2">
+                        {team.leader.split(',').map((name, index) => (
+                          <div key={index} className="leading-tight">{name.trim()}</div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -235,7 +242,7 @@ export function About() {
           <div className="space-y-6">
             <div className="rounded-lg overflow-hidden h-[400px] border border-gray-200">
               <KakaoMap
-                address="대전광역시 서구 둔산대로 169"
+                address="대전광역시 서구 둔산대로117번길 102"
                 className="h-[400px]"
                 level={3}
               />
@@ -243,28 +250,16 @@ export function About() {
 
             {/* Combined Address and Contact Information */}
             <div className="bg-[var(--color-opera-cream)] border-2 border-[var(--color-opera-gold)] rounded-lg p-6">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-1 gap-8">
                 <div>
                   <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-4">
                     주소
                   </h3>
                   <p className="text-gray-700 mb-2">
-                    대전광역시 서구 둔산대로 169
+                    대전광역시 서구 둔산대로117번길 102
                   </p>
                   <p className="text-gray-700">
-                    대전예술의전당 내 대전오페라단
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-4">
-                    연락처
-                  </h3>
-                  <p className="text-gray-700 mb-2">
-                    전화: 042-270-8000
-                  </p>
-                  <p className="text-gray-700">
-                    팩스: 042-270-8009
+                    6층 602호 (만년동, 아트벤처빌딩)
                   </p>
                 </div>
               </div>
@@ -280,13 +275,13 @@ export function About() {
                   <span className="inline-block bg-blue-500 text-white px-2 py-1 rounded text-sm mr-2">
                     지하철
                   </span>
-                  <span>1호선 시청역 4번 출구 (도보 10분)</span>
+                  <span>1호선 정부청사역 3번 출구 (도보 15분)</span>
                 </div>
                 <div>
                   <span className="inline-block bg-green-500 text-white px-2 py-1 rounded text-sm mr-2">
                     버스
                   </span>
-                  <span>102, 106, 311, 316, 606번 - 예술의전당 하차</span>
+                  <span>705, 911, 108, 116번 - 만년동 하차</span>
                 </div>
               </div>
             </div>

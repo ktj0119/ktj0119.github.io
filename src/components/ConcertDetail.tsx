@@ -66,7 +66,9 @@ export function ConcertDetail({
         <div className="flex flex-wrap gap-4 text-gray-600">
           <div>
             <span className="font-bold text-gray-900">공연일</span>{"  "}
-            {new Date(concert.date).toLocaleDateString("ko-KR")}
+            {concert.date.includes('~') 
+              ? concert.date 
+              : new Date(concert.date).toLocaleDateString("ko-KR")}
           </div>
           <div className="mt-[0px] mr-[0px] mb-[0px] ml-[19px]">
             <span className="font-bold text-gray-900">장소</span>{"  "}
@@ -89,7 +91,7 @@ export function ConcertDetail({
           공연 소개
         </h2>
         <div className="bg-[var(--color-opera-cream)] p-6 rounded-lg">
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
             {concert.description}
           </p>
         </div>
@@ -104,11 +106,11 @@ export function ConcertDetail({
               공연 갤러리
             </h2>
             {/* Image Slider */}
-            <div className="relative bg-gray-100 rounded-lg overflow-hidden aspect-[4/3]">
+            <div className="relative bg-black/90 rounded-lg overflow-hidden aspect-[4/3]">
               <img
                 src={concert.images![currentImageIndex]}
                 alt={`${concert.title} - ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
 
               {/* Navigation Arrows */}
@@ -138,7 +140,7 @@ export function ConcertDetail({
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`flex-1 aspect-video rounded overflow-hidden border-2 transition-colors ${
+                  className={`flex-1 aspect-video rounded overflow-hidden border-2 transition-colors bg-gray-50 ${
                     currentImageIndex === index
                       ? "border-[var(--color-opera-burgundy)]"
                       : "border-transparent hover:border-gray-300"
@@ -147,7 +149,7 @@ export function ConcertDetail({
                   <img
                     src={image}
                     alt={`Thumbnail ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </button>
               ))}
@@ -165,27 +167,29 @@ export function ConcertDetail({
         </div>
 
         {/* YouTube Video */}
-        <div>
-          <h2 className="text-2xl text-[var(--color-opera-burgundy)] mb-4">
-            영상
-          </h2>
-          <div className="bg-gray-100 rounded-lg overflow-hidden">
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube.com/embed/${concert.videoId}`}
-                title={concert.videoTitle}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              />
-            </div>
-            <div className="p-3 bg-white">
+        {concert.videoId && concert.videoTitle && (
+          <div>
+            <h2 className="text-2xl text-[var(--color-opera-burgundy)] mb-4">
+              영상
+            </h2>
+            <div className="bg-gray-100 rounded-lg overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${concert.videoId}`}
+                  title={concert.videoTitle}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-3 bg-white">
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Additional Information */}

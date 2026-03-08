@@ -74,9 +74,6 @@ export function ConcertList({ onViewAll, onSelectConcert }: ConcertListProps) {
       <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '1536px' }}>
         <div className="text-center mb-12">
           <h2 className="text-[var(--color-opera-burgundy)] mb-4">공연</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            최근 개최된 공연의 감동을 다시 만나보세요
-          </p>
         </div>
 
         <div className="relative concert-list-carousel px-12 md:px-16">

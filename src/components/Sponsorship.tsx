@@ -1,49 +1,60 @@
-import { Heart, Building2, Gift, Mail, Phone, MapPin } from 'lucide-react';
+import {
+  Heart,
+  Building2,
+  Gift,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export function Sponsorship() {
-  const sponsorshipLevels = [
+  const monthlySponsorshipLevels = [
     {
-      level: '플래티넘 후원',
-      amount: '1,000만원 이상',
-      benefits: [
-        '공연 프로그램북 메인 페이지 광고',
-        '연간 정기공연 VIP석 10매 제공',
-        '공연 리셉션 초대',
-        '홈페이지 및 SNS 후원사 로고 게재',
-        '세제 혜택 (기부금 영수증 발급)',
-      ],
-      color: 'bg-gradient-to-br from-gray-300 to-gray-400',
+      level: "헨델",
+      amount: "10,000원",
+      benefits: ["티켓 1매 제공[년]", "추가 구매 시 30% 할인"],
     },
     {
-      level: '골드 후원',
-      amount: '500만원 이상',
-      benefits: [
-        '공연 프로그램북 광고 게재',
-        '연간 정기공연 VIP석 5매 제공',
-        '홈페이지 후원사 명단 게재',
-        '세제 혜택 (기부금 영수증 발급)',
-      ],
-      color: 'bg-gradient-to-br from-[var(--color-opera-gold)] to-yellow-600',
+      level: "모차르트",
+      amount: "30,000원 이상",
+      benefits: ["티켓 2매 제공[년]", "추가 구매 시 40% 할인"],
     },
     {
-      level: '실버 후원',
-      amount: '300만원 이상',
+      level: "슈트라우스",
+      amount: "100,000원 이상",
+      benefits: ["티켓 4매 제공[년]", "추가 구매 시 50% 할인"],
+    },
+  ];
+
+  const annualSponsorshipLevels = [
+    {
+      level: "도니제티",
+      amount: "300만원 이상 후원",
       benefits: [
-        '공연 프로그램북 후원사 명단 게재',
-        '연간 정기공연 일반석 5매 제공',
-        '세제 혜택 (기부금 영수증 발급)',
+        "티켓 20매 제공[년]",
+        "추가 구매 시 30% 할인",
+        "정기공연 프로그램 북 광고",
       ],
-      color: 'bg-gradient-to-br from-gray-200 to-gray-300',
     },
     {
-      level: '일반 후원',
-      amount: '100만원 이상',
+      level: "푸치니",
+      amount: "500만원 이상 후원",
       benefits: [
-        '공연 프로그램북 후원사 명단 게재',
-        '연간 정기공연 일반석 2매 제공',
-        '세제 혜택 (기부금 영수증 발급)',
+        "티켓 30매 제공[년]",
+        "추가 구매 시 40% 할인",
+        "맛있는 오페라 강의[년1회]",
+        "정기공연 프로그램 북 광고",
       ],
-      color: 'bg-gradient-to-br from-[var(--color-opera-burgundy)] to-red-900',
+    },
+    {
+      level: "베르니",
+      amount: "1,000만원 이상 후원",
+      benefits: [
+        "티켓 30매 제공[년]",
+        "추가 구매 시 50% 할인",
+        "사은 음악회[년1회]",
+        "정기공연 프로그램 북 광고",
+      ],
     },
   ];
 
@@ -62,7 +73,7 @@ export function Sponsorship() {
       </section>
 
       {/* Why Sponsor Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-[var(--color-opera-burgundy)] mb-12">
             후원이 필요한 이유
@@ -96,57 +107,195 @@ export function Sponsorship() {
       {/* Sponsorship Levels */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-[var(--color-opera-burgundy)] mb-12">
-            대전오페라단 후원회원 안내
+          <h2 className="text-center text-[var(--color-opera-burgundy)] mb-4">
+            후원 등급 안내
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            후원 금액에 따라 다양한 혜택을 드립니다
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sponsorshipLevels.map((tier, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className={`${tier.color} p-6 text-white text-center`}>
-                  <h3 className="text-2xl mb-2 text-white">{tier.level}</h3>
-                  <p className="text-lg opacity-90">{tier.amount}</p>
-                </div>
-                <div className="p-6">
-                  <ul className="space-y-3">
-                    {tier.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start text-sm">
-                        <span className="text-[var(--color-opera-gold)] mr-2">✓</span>
-                        <span className="text-gray-700">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Monthly Membership Table */}
+          <div className="mb-12">
+            <h3 className="text-2xl mb-6 text-[var(--color-opera-burgundy)]">
+              월회비
+            </h3>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-[var(--color-opera-burgundy)] to-[var(--color-opera-dark)]">
+                      <th className="px-6 py-4 text-center text-white border-r border-white/20">
+                        등급
+                      </th>
+                      <th className="px-6 py-4 text-center text-white border-r border-white/20">
+                        금액
+                      </th>
+                      <th className="px-6 py-4 text-center text-white">
+                        혜택
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {monthlySponsorshipLevels.map(
+                      (tier, index) => (
+                        <tr
+                          key={index}
+                          className={`${
+                            index % 2 === 0
+                              ? "bg-white"
+                              : "bg-[var(--color-opera-cream)]"
+                          } hover:bg-[var(--color-opera-gold)]/10 transition-colors`}
+                        >
+                          <td className="px-6 py-4 border-b border-gray-200 text-center">
+                            <span className="font-semibold text-[var(--color-opera-burgundy)]">
+                              {tier.level}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 border-b border-gray-200 text-center">
+                            <span className="font-semibold">
+                              {tier.amount}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 border-b border-gray-200">
+                            <ul className="space-y-2">
+                              {tier.benefits.map(
+                                (benefit, idx) => (
+                                  <li
+                                    key={idx}
+                                    className="flex items-start text-sm"
+                                  >
+                                    <span className="text-[var(--color-opera-gold)] mr-2">
+                                      ✓
+                                    </span>
+                                    <span className="text-gray-700">
+                                      {benefit}
+                                    </span>
+                                  </li>
+                                ),
+                              )}
+                            </ul>
+                          </td>
+                        </tr>
+                      ),
+                    )}
+                  </tbody>
+                </table>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Annual Membership Table */}
+          <div>
+            <h3 className="text-2xl mb-6 text-[var(--color-opera-burgundy)]">
+              연회비
+            </h3>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-gradient-to-r from-[var(--color-opera-burgundy)] to-[var(--color-opera-dark)]">
+                      <th className="px-6 py-4 text-center text-white border-r border-white/20">
+                        등급
+                      </th>
+                      <th className="px-6 py-4 text-center text-white border-r border-white/20">
+                        금액
+                      </th>
+                      <th className="px-6 py-4 text-center text-white">
+                        혜택
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {annualSponsorshipLevels.map(
+                      (tier, index) => (
+                        <tr
+                          key={index}
+                          className={`${
+                            index % 2 === 0
+                              ? "bg-white"
+                              : "bg-[var(--color-opera-cream)]"
+                          } hover:bg-[var(--color-opera-gold)]/10 transition-colors`}
+                        >
+                          <td className="px-6 py-4 border-b border-gray-200 text-center">
+                            <span className="font-semibold text-[var(--color-opera-burgundy)]">
+                              {tier.level}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 border-b border-gray-200 text-center">
+                            <span className="font-semibold">
+                              {tier.amount}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 border-b border-gray-200">
+                            <ul className="space-y-2">
+                              {tier.benefits.map(
+                                (benefit, idx) => (
+                                  <li
+                                    key={idx}
+                                    className="flex items-start text-sm"
+                                  >
+                                    <span className="text-[var(--color-opera-gold)] mr-2">
+                                      ✓
+                                    </span>
+                                    <span className="text-gray-700">
+                                      {benefit}
+                                    </span>
+                                  </li>
+                                ),
+                              )}
+                            </ul>
+                          </td>
+                        </tr>
+                      ),
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How to Sponsor */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-[var(--color-opera-burgundy)] mb-12">
             후원 신청 방법
           </h2>
 
-          <div className="bg-[var(--color-opera-cream)] rounded-lg p-8 mb-8">
-            <div className="space-y-4 text-gray-700">
-              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
-                <strong className="sm:w-60 flex-shrink-0">자동이체(CMS)</strong>
-                <span className="flex-1">매월 정기적으로 원하시는 만큼 후원하는 방법</span>
-              </p>
-              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
-                <strong className="sm:w-60 flex-shrink-0">무통장 입금 및 계좌이체</strong>
-                <span className="flex-1">지은주(대전오페라단) 국민 468401-04-201402</span>
-              </p>
-              <p className="text-lg flex flex-col sm:flex-row sm:items-baseline">
-                <strong className="sm:w-60 flex-shrink-0">후원 문의</strong>
-                <span className="flex-1">담당 010-6553-9008</span>
-              </p>
+          <div className="bg-white border border-gray-100 rounded-2xl shadow-xl overflow-hidden mt-10 mb-16">
+            <div className="bg-[var(--color-opera-burgundy)] py-4 px-8 text-center">
+              <h3 className="text-white text-xl mb-0">신청 절차 안내</h3>
+            </div>
+            <div className="p-10 space-y-12">
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mt-4">
+                <div className="text-center md:text-left">
+                  <h4 className="text-lg font-bold mb-2 text-gray-800">자동이체(CMS) 신청</h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    매월 정기적으로 원하시는 금액만큼 후원하실 수 있습니다. <br/>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mt-4">
+                <div className="text-center md:text-left">
+                  <h4 className="text-lg font-bold mb-2 text-gray-800">무통장 입금 및 계좌이체</h4>
+                  <div className="bg-[var(--color-opera-cream)] p-5 rounded-lg inline-block border border-[var(--color-opera-gold)]/20 mt-2">
+                    <p className="text-[var(--color-opera-burgundy)] font-bold text-lg mb-1">국민은행 468401-04-201402</p>
+                    <p className="text-gray-700">예금주: 지은주(대전오페라단)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:items-start gap-6 mt-4">
+                <div className="text-center md:text-left">
+                  <h4 className="text-lg font-bold mb-2 text-gray-800">후원 및 기부 문의</h4>
+                  <p className="text-gray-700 flex items-center justify-center md:justify-start gap-2 text-lg">
+                    <Phone className="w-5 h-5 text-[var(--color-opera-gold)]" />
+                    담당자: <span className="font-bold text-[var(--color-opera-burgundy)]">010-6353-9008</span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

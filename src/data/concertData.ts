@@ -3,13 +3,10 @@
 export interface Concert {
   id: number;
   title: string;
-  composer: string;
   date: string;
   venue: string;
   image: string;
   // Detailed information (optional for list views)
-  conductor?: string;
-  director?: string;
   description?: string;
   images?: string[];
   videoId?: string;
@@ -20,184 +17,61 @@ export interface Concert {
 export const concerts: Concert[] = [
   {
     id: 1,
-    title: "라 트라비아타",
-    composer: "Giuseppe Verdi",
-    date: "2024-12-15",
+    title: "나비부인",
+    date: "2025-08-29 ~ 2025-08-31",
     venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=400&h=400&fit=crop",
-    conductor: "홍길동",
-    director: "김예술",
-    description: "베르디의 불멸의 명작 '라 트라비아타'가 대전오페라단의 새로운 해석으로 무대에 오릅니다. 비올레타의 비극적인 사랑 이야기를 통해 진정한 사랑의 의미를 되새겨 봅니다.",
+    image: "images/concert/2025/madama butterfly/poster.jpg",
+    description: `“사랑을 믿은 날개는, 운명 앞에 조용히 젖는다.”
+    1900년 일본의 나가사키를 배경으로 펼쳐지는 오페라 <나비부인>은 돌아오지 않을 남편을 홀로 기다리다 비극적 최후를 맞이하는 초초상의 이야기입니다. 나가사키에 주둔하고 있던 미 해군 중위 핑커턴(Pinkerton)은 집안이 몰락하여 게이샤가 된 15살의 초초상(Cio-Cio-San) 과 결혼합니다. 얼마 후 복무 기간이 끝난 핑커턴은 곧 돌아오겠다는 말을 남기고 미국으로 돌아가 버립니다. 3년이 지나도 그가 돌아오지 않자 주위 사람들은 그녀에게 재혼을 권하지만 초초상은 이를 거절합니다. 그러던 어느 날 핑커턴은 미국인 아내 케이트(Kate)와 함께 초초상 앞에 나타나 아들을 데려가겠다고 말합니다. 좌절한 초초상은 아들과 마지막 인사를 나누고 스스로 자결합니다.`,
     images: [
-      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
+    "images/concert/2025/madama butterfly/pic1.jpg",
+    "images/concert/2025/madama butterfly/pic2.jpg",
+    "images/concert/2025/madama butterfly/pic3.jpg"
+  ]
+  },
+{
+  id: 2,
+    title: "이상의 날개",
+      date: "2024-03-08 ~ 2024-03-10",
+        venue: "국립극장 달오름",
+          image: "images/concert/2024/The Wing of Yi Sang/poster.jpg",
+            description: `“어떤 고통에도 희망의 날개를 접지 않는 자, 마침내 그 희망의 가장 가까이 닿을 것이다”. 이미 죽은 사람처럼, 자신을 ‘박제가 되어버린 천재’라고 자처했던 김해경(시인 이상)
+            
+            1936년 식민지 도시 경성. 
+            희망 없는 나날. 해경의 괴로움을 아는 것은 자신이 마주하는 거울 속 세계에 존재하는 분신, 이상 뿐이다. 이상은 해경을 만날 때마다 자살을 권유한다. 이 가혹한 세계를 탈출하는 방법은 죽음밖에 없다고. 하지만 해경은 아직은 도망가지 않겠다며 거부한다.  자신이 겪는 절망을 문학으로 똑똑히 기록하고 싶다고. 
+
+            19세기와 20세기의 틈바구니에 짓눌려 아우성치는 식민지 사람들. 무서운 시대, 겁에 질린 아이들이 막다른 골목으로 질주하는 것을 목격하는 시인. 그렇게 처절한 비명처럼 써 나간 시 오감도. 
+
+            하지만 세상에 야심차게 내보인 작품은 실패로 돌아가고, 금홍이 역시 그를 외면한다. 
+            빛 한 줌 들지 않는 종로 구석에 유폐된 듯 살아온 두 청춘. 폐병에 걸려 삶과 죽음의 문턱을 오가는 시인 해경과 시골 기생 출신 금홍이의 사랑. 화려한 불빛 아래, 욕망이 들끓는 도시 한복판에서 해경은 이제 길을 잃고 애인마저 잃는다.
+
+            홀로 남은 해경에게 다가온 한 여자. 그의 시를 사랑하는 변동림이 나타나고, 마침내 해경은 금홍이와의 생활을 청산하고 동림과 새로운 출발을 꿈꾼다. 그러나 행복한 순간도 잠시. 결혼식장에서 행패를 부리는 일본인을 해경이 폭행하는 사건이 벌어지고, 이 일로 해경은 경성을 떠나 바다를 건너간다.
+            비록 피난처이긴 하나 그토록 갈망했던 도시 동경에 도착한 해경. 하지만 곧 자신이 품었던 환상이 착각이었음을 깨닫고, 급기야 오랫동안 멈춰 있던 각혈까지 재발한다. 그렇게 환멸에 빠져 있는 해경 앞에 이상이 또 다시 나타나는데...`,
+              images: [
+                "images/concert/2024/The Wing of Yi Sang/pic1.jpg",
+                "images/concert/2024/The Wing of Yi Sang/pic2.jpg", 
+                "images/concert/2024/The Wing of Yi Sang/pic3.jpg",
+              ],
+              videoId: "QZfyRYg4HfI",
+              videoTitle: "24.03.08 15:00 공연"
   },
   {
-    id: 2,
-    title: "카르멘",
-    composer: "Georges Bizet",
-    date: "2024-11-20",
+    id:3,
+    title: "카발레리아 루스티카나 & 팔리아치",
+    date: "2023-06-09 ~ 2023-06-11",
     venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1513623935135-c896b59073c1?w=400&h=400&fit=crop",
-    conductor: "박지휘",
-    director: "이연출",
-    description: "비제의 열정적인 오페라 '카르멘'이 화려한 무대로 관객 여러분을 찾아갑니다. 자유로운 영혼 카르멘과 돈 호세의 운명적인 사랑 이야기를 만나보세요.",
+    image: "images/concert/2023/Cavalleria/poster.jpg",
+    description: `현실보다 더욱 적나라한 현실을 무대 위에 그려내는 베리즈모 오페라의 대표작!
+    시대와 외형을 그대로 표현하지 않고, 내면의 실제와 타락한 현실 그리고 엉킨 관계를 보여줌으로써 현실의 객관적인 모습을 통해
+    우리 자신을 반성하고 고찰하는 작품을 무대 위에서 현실의 참상과 인간의 본성을 충격적이면서도 아름답게 그려낸다.`,
     images: [
-      "https://images.unsplash.com/photo-1513623935135-c896b59073c1?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop",
+        "images/concert/2023/Cavalleria/pic1.jpg",
+        "images/concert/2023/Cavalleria/pic2.jpg",
+        "images/concert/2023/Cavalleria/pic3.jpg"
     ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 3,
-    title: "투란도트",
-    composer: "Giacomo Puccini",
-    date: "2024-10-10",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    conductor: "최지휘",
-    director: "정연출",
-    description: "푸치니의 마지막 걸작 '투란도트'가 웅장한 스케일로 무대를 장식합니다. 얼음 공주 투란도트와 칼라프 왕자의 운명적 만남을 경험하세요.",
-    images: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1513623935135-c896b59073c1?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 4,
-    title: "마술피리",
-    composer: "Wolfgang Amadeus Mozart",
-    date: "2024-09-05",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1514894780887-121968d00567?w=400&h=400&fit=crop",
-    conductor: "강지휘",
-    director: "송연출",
-    description: "모차르트의 환상적인 오페라 '마술피리'가 동화 같은 무대로 여러분을 초대합니다. 타미노 왕자의 모험과 사랑 이야기를 만나보세요.",
-    images: [
-      "https://images.unsplash.com/photo-1514894780887-121968d00567?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 5,
-    title: "리골레토",
-    composer: "Giuseppe Verdi",
-    date: "2024-08-18",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop",
-    conductor: "임지휘",
-    director: "오연출",
-    description: "베르디의 비극 오페라 '리골레토'가 강렬한 무대로 돌아옵니다. 광대 리골레토와 그의 딸 질다의 가슴 아픈 이야기를 경험하세요.",
-    images: [
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 6,
-    title: "라 보엠",
-    composer: "Giacomo Puccini",
-    date: "2024-07-22",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=400&fit=crop",
-    conductor: "유지휘",
-    director: "서연출",
-    description: "푸치니의 서정적 걸작 '라 보엠'이 낭만적인 무대로 여러분을 찾아갑니다. 파리의 가난한 예술가들의 사랑과 우정 이야기를 만나보세요.",
-    images: [
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1513623935135-c896b59073c1?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 7,
-    title: "토스카",
-    composer: "Giacomo Puccini",
-    date: "2024-06-14",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    conductor: "신지휘",
-    director: "한연출",
-    description: "푸치니의 극적인 오페라 '토스카'가 긴장감 넘치는 무대로 펼쳐집니다. 사랑과 질투, 정치적 음모가 얽힌 감동적인 이야기를 경험하세요.",
-    images: [
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 8,
-    title: "피가로의 결혼",
-    composer: "Wolfgang Amadeus Mozart",
-    date: "2024-05-08",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-    conductor: "조지휘",
-    director: "민연출",
-    description: "모차르트의 유쾌한 코미디 오페라 '피가로의 결혼'이 즐거운 무대로 여러분을 초대합니다. 하루 동안 벌어지는 유쾌한 소동을 만나보세요.",
-    images: [
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 9,
-    title: "아이다",
-    composer: "Giuseppe Verdi",
-    date: "2024-04-12",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&h=400&fit=crop",
-    conductor: "노지휘",
-    director: "류연출",
-    description: "베르디의 장엄한 그랜드 오페라 '아이다'가 화려한 스펙터클로 무대에 오릅니다. 고대 이집트를 배경으로 한 사랑과 충성의 이야기를 경험하세요.",
-    images: [
-      "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1513623935135-c896b59073c1?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
-  {
-    id: 10,
-    title: "돈 조반니",
-    composer: "Wolfgang Amadeus Mozart",
-    date: "2024-03-15",
-    venue: "대전예술의전당 아트홀",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=400&fit=crop",
-    conductor: "구지휘",
-    director: "안연출",
-    description: "모차르트의 심오한 오페라 '돈 조반니'가 철학적 깊이와 함께 무대에 오릅니다. 방탕한 귀족 돈 조반니의 파멸적 운명을 만나보세요.",
-    images: [
-      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    ],
-    videoId: "dQw4w9WgXcQ",
-    videoTitle: "공연 하이라이트",
-  },
+    videoId: "TM6DZT2zr6I",
+    videoTitle: "23.06.10 15:00 공연"
+  }
 ];
 
 // Helper function to get concert by ID

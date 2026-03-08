@@ -11,22 +11,21 @@ import { ConcertDetail } from './components/ConcertDetail';
 import { PhotoGalleryModal } from './components/PhotoGalleryModal';
 import { Board } from './components/Board';
 import { NoticeDetail } from './components/NoticeDetail';
-import { MagazineDetail } from './components/MagazineDetail';
 import { Sponsorship } from './components/Sponsorship';
 import { Inquiry } from './components/Inquiry';
 import { TermsOfUse } from './components/TermsOfUse';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { Admin } from './components/Admin';
 import { useEffect, useState } from 'react';
+import { concerts } from './data/concertData';
 
-type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'magazine-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
+type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
 
 // Main App Component
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedConcertId, setSelectedConcertId] = useState<number | null>(null);
   const [selectedNoticeId, setSelectedNoticeId] = useState<number | null>(null);
-  const [selectedMagazineId, setSelectedMagazineId] = useState<number | null>(null);
   const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
   const [previousPage, setPreviousPage] = useState<Page>('home'); // Track previous page for back navigation
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
@@ -138,11 +137,6 @@ export default function App() {
     handleNavigate('board');
   };
 
-  const handleSelectMagazine = (magazineId: number) => {
-    setSelectedMagazineId(magazineId);
-    handleNavigate('magazine-detail');
-  };
-
   const handleIncrementViewCount = (id: string) => {
     setViewCounts(prevCounts => ({
       ...prevCounts,
@@ -184,7 +178,6 @@ export default function App() {
         {currentPage === 'board' && (
           <Board 
             onSelectNotice={handleSelectNotice}
-            onSelectMagazine={handleSelectMagazine}
             viewCounts={viewCounts}
             noticePage={boardNoticePage}
             setNoticePage={setBoardNoticePage}
@@ -197,13 +190,6 @@ export default function App() {
         {currentPage === 'notice-detail' && selectedNoticeId && (
           <NoticeDetail
             noticeId={selectedNoticeId}
-            onBack={() => handleNavigate('board')}
-            onViewIncrement={handleIncrementViewCount}
-          />
-        )}
-        {currentPage === 'magazine-detail' && selectedMagazineId && (
-          <MagazineDetail
-            magazineId={selectedMagazineId}
             onBack={() => handleNavigate('board')}
             onViewIncrement={handleIncrementViewCount}
           />
@@ -222,11 +208,14 @@ export default function App() {
       <Footer onNavigate={handleNavigate} />
       
       {/* Photo Gallery Modal */}
-      <PhotoGalleryModal
-        concertTitle="라 트라비아타"
-        isOpen={isPhotoGalleryOpen}
-        onClose={handleClosePhotoGallery}
-      />
+      {selectedConcertId && (
+        <PhotoGalleryModal
+          concertTitle={concerts.find(c => c.id === selectedConcertId)?.title || ''}
+          photos={concerts.find(c => c.id === selectedConcertId)?.images || []}
+          isOpen={isPhotoGalleryOpen}
+          onClose={handleClosePhotoGallery}
+        />
+      )}
     </div>
   );
 }

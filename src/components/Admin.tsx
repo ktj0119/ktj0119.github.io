@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Plus, Edit, Trash2, Save, X, Search } from 'lucide-react';
-import { notices, news, magazines } from '../data/boardData';
-import type { NoticeItem, NewsItem, MagazineItem } from '../data/boardData';
+import { notices, news } from '../data/boardData';
+import type { NoticeItem, NewsItem } from '../data/boardData';
 import { concerts } from '../data/concertData';
 import type { Concert } from '../data/concertData';
 
-type TabType = 'performances' | 'announcements' | 'news' | 'magazines';
+type TabType = 'performances' | 'announcements' | 'news';
 
 export function Admin() {
   const [activeTab, setActiveTab] = useState<TabType>('performances');
@@ -17,7 +17,6 @@ export function Admin() {
   const [performanceData, setPerformanceData] = useState<Concert[]>(concerts);
   const [announcementData, setAnnouncementData] = useState<NoticeItem[]>(notices);
   const [newsData, setNewsData] = useState<NewsItem[]>(news);
-  const [magazineData, setMagazineData] = useState<MagazineItem[]>(magazines);
 
   // Form states
   const [formData, setFormData] = useState<any>({});
@@ -57,9 +56,6 @@ export function Admin() {
       case 'news':
         item = newsData.find((n) => n.no === id);
         break;
-      case 'magazines':
-        item = magazineData.find((m) => m.id === id);
-        break;
     }
     setFormData(item || {});
   };
@@ -76,9 +72,6 @@ export function Admin() {
         break;
       case 'news':
         setNewsData(newsData.filter((n) => n.no !== id));
-        break;
-      case 'magazines':
-        setMagazineData(magazineData.filter((m) => m.id !== id));
         break;
     }
   };
@@ -108,10 +101,6 @@ export function Admin() {
           const newNews = { ...formData, no: Date.now(), views: 0 };
           setNewsData([...newsData, newNews]);
           break;
-        case 'magazines':
-          const newMagazine = { ...formData, id: Date.now() };
-          setMagazineData([...magazineData, newMagazine]);
-          break;
       }
     } else if (editingId) {
       // Update existing item
@@ -129,11 +118,6 @@ export function Admin() {
         case 'news':
           setNewsData(
             newsData.map((n) => (n.no === editingId ? { ...formData, no: editingId } : n))
-          );
-          break;
-        case 'magazines':
-          setMagazineData(
-            magazineData.map((m) => (m.id === editingId ? { ...formData, id: editingId } : m))
           );
           break;
       }
@@ -276,32 +260,6 @@ export function Admin() {
               />
             </>
           )}
-
-          {activeTab === 'magazines' && (
-            <>
-              <input
-                type="text"
-                placeholder="제목"
-                value={formData.title || ''}
-                onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-opera-burgundy)]"
-              />
-              <input
-                type="text"
-                placeholder="날짜 (예: 2024-12-15)"
-                value={formData.date || ''}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-opera-burgundy)]"
-              />
-              <input
-                type="text"
-                placeholder="썸네일 URL"
-                value={formData.thumbnail || ''}
-                onChange={(e) => setFormData({ ...formData, thumbnail: e.target.value })}
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-opera-burgundy)]"
-              />
-            </>
-          )}
         </div>
       </div>
     );
@@ -323,10 +281,6 @@ export function Admin() {
       case 'news':
         data = filterByTitle(newsData);
         headers = ['No.', '제목', '날짜', '조회수', '액션'];
-        break;
-      case 'magazines':
-        data = magazineData;
-        headers = ['ID', '제목', '날짜', '액션'];
         break;
     }
 
@@ -379,13 +333,6 @@ export function Admin() {
                         <td className="px-6 py-4 text-sm text-gray-600">{item.views}</td>
                       </>
                     )}
-                    {activeTab === 'magazines' && (
-                      <>
-                        <td className="px-6 py-4 text-sm text-gray-600">{item.id}</td>
-                        <td className="px-6 py-4 text-sm text-gray-800">{item.title}</td>
-                        <td className="px-6 py-4 text-sm text-gray-600">{item.date}</td>
-                      </>
-                    )}
                     <td className="px-6 py-4 text-sm">
                       <div className="flex gap-2">
                         <button
@@ -422,7 +369,7 @@ export function Admin() {
       <div className="bg-gradient-to-r from-[var(--color-opera-burgundy)] to-[var(--color-opera-dark)] text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl text-white mb-2">데이터 관리</h1>
-          <p className="text-white/90">공연, 공지사항, 뉴스, 매거진 관리</p>
+          <p className="text-white/90">공연, 공지사항, 뉴스 관리</p>
         </div>
       </div>
 
@@ -459,16 +406,6 @@ export function Admin() {
               }`}
             >
               뉴스
-            </button>
-            <button
-              onClick={() => handleTabChange('magazines')}
-              className={`px-6 py-4 transition-colors ${
-                activeTab === 'magazines'
-                  ? 'text-[var(--color-opera-burgundy)] border-b-2 border-[var(--color-opera-burgundy)]'
-                  : 'text-gray-600 hover:text-gray-800'
-              }`}
-            >
-              매거진
             </button>
           </div>
         </div>

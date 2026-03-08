@@ -94,7 +94,9 @@ export function Concerts({ onSelectConcert }: ConcertsProps) {
                     {concert.title}
                   </h3>
                   <p className="text-gray-600 mt-1">
-                    {new Date(concert.date).toLocaleDateString("ko-KR")}
+                    {concert.date.includes('~') 
+                      ? concert.date 
+                      : new Date(concert.date).toLocaleDateString("ko-KR")}
                   </p>
                   <p className="text-sm text-gray-500">{concert.venue}</p>
                 </div>

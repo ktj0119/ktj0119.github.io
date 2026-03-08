@@ -4,23 +4,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     image: 'https://images.unsplash.com/photo-1660463718048-b55d65fd7a34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcGVyYSUyMGhvdXNlJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzY2MjA4MTQ5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Welcome to Grand Opera House',
-    subtitle: 'Experience the Magic of Live Opera Performance'
+    title: '대전오페라단',
+    subtitle: '작지만 큰도시 대전의 오페라 이야기'
   },
   {
-    image: 'https://images.unsplash.com/photo-1551696785-927d4ac2d35b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmNoZXN0cmElMjBwZXJmb3JtYW5jZXxlbnwxfHx8fDE3NjYyMDgxNTB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'World-Class Orchestra',
-    subtitle: 'Bringing Classical Masterpieces to Life'
+    image: 'images/main1.jpg',
+    // title: 'World-Class Orchestra',
+    // subtitle: 'Bringing Classical Masterpieces to Life'
   },
   {
-    image: 'https://images.unsplash.com/flagged/photo-1575448056267-834f55896cd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcGVyYSUyMHNpbmdlciUyMHN0YWdlfGVufDF8fHx8MTc2NjIwOTY2OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Talented Artists',
-    subtitle: 'Performances That Touch Your Soul'
+    image: 'images/main2.jpg',
+    // title: 'Talented Artists',
+    // subtitle: 'Performances That Touch Your Soul'
   },
   {
-    image: 'https://images.unsplash.com/photo-1665322049384-e56e9ce06e68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGFzc2ljYWwlMjB0aGVhdGVyfGVufDF8fHx8MTc2NjIwODE1MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-    title: 'Historic Venue',
-    subtitle: 'A Century of Musical Excellence'
+    image: 'images/main3.jpg',
+    // title: 'Historic Venue',
+    // subtitle: 'A Century of Musical Excellence'
   }
 ];
 

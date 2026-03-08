@@ -3,25 +3,13 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PhotoGalleryModalProps {
   concertTitle: string;
+  photos: string[];
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function PhotoGalleryModal({ concertTitle, isOpen, onClose }: PhotoGalleryModalProps) {
+export function PhotoGalleryModal({ concertTitle, photos, isOpen, onClose }: PhotoGalleryModalProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
-  // Mock gallery images - in real app, fetch by concert
-  const allPhotos = [
-    "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=600&fit=crop",
-  ];
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -66,14 +54,14 @@ export function PhotoGalleryModal({ concertTitle, isOpen, onClose }: PhotoGaller
 
   const nextImage = () => {
     if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % allPhotos.length);
+      setSelectedImage((selectedImage + 1) % photos.length);
     }
   };
 
   const prevImage = () => {
     if (selectedImage !== null) {
       setSelectedImage(
-        selectedImage === 0 ? allPhotos.length - 1 : selectedImage - 1
+        selectedImage === 0 ? photos.length - 1 : selectedImage - 1
       );
     }
   };
@@ -99,7 +87,7 @@ export function PhotoGalleryModal({ concertTitle, isOpen, onClose }: PhotoGaller
                 <h2 className="text-3xl text-[var(--color-opera-burgundy)] mb-1">
                   {concertTitle}
                 </h2>
-                <p className="text-gray-600">전체 사진 ({allPhotos.length})</p>
+                <p className="text-gray-600">전체 사진 ({photos.length})</p>
               </div>
               <button
                 onClick={onClose}
@@ -113,16 +101,16 @@ export function PhotoGalleryModal({ concertTitle, isOpen, onClose }: PhotoGaller
             {/* Photo Grid */}
             <div className="p-6">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {allPhotos.map((photo, index) => (
+                {photos.map((photo, index) => (
                   <button
                     key={index}
                     onClick={() => openLightbox(index)}
-                    className="aspect-square overflow-hidden rounded-lg hover:opacity-80 hover:shadow-lg transition-all duration-300"
+                    className="aspect-square overflow-hidden rounded-lg hover:opacity-80 hover:shadow-lg transition-all duration-300 bg-gray-100"
                   >
                     <img
                       src={photo}
                       alt={`${concertTitle} - Photo ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </button>
                 ))}
@@ -169,14 +157,14 @@ export function PhotoGalleryModal({ concertTitle, isOpen, onClose }: PhotoGaller
           </button>
 
           <img
-            src={allPhotos[selectedImage]}
+            src={photos[selectedImage]}
             alt={`${concertTitle} - Photo ${selectedImage + 1}`}
             className="max-w-full max-h-full object-contain"
             onClick={(e) => e.stopPropagation()}
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-            {selectedImage + 1} / {allPhotos.length}
+            {selectedImage + 1} / {photos.length}
           </div>
         </div>
       )}
