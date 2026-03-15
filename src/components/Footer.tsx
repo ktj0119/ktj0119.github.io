@@ -45,7 +45,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-center">
                 <Phone className="w-4 h-4 mr-2 flex-shrink-0 text-[var(--color-opera-gold)]" />
                 <span className="text-gray-300">
-                  대표전화 : 010-6353-9008
+                  대표전화 : 010-3062-9080
                 </span>
               </li>
               <li className="flex items-center">
