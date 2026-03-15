@@ -130,6 +130,9 @@ export function PerformanceCarousel() {
               min-height: 1px;
             }
             .slick-slide img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
               display: block;
             }
             .slick-slide.slick-loading img {
@@ -186,6 +189,12 @@ export function PerformanceCarousel() {
             .performance-carousel .slick-list {
               margin: 0 -12px;
             }
+            .performance-carousel .slick-slide img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
             @media (max-width: 768px) {
               .performance-carousel .slick-slide {
                 padding: 0 8px;
@@ -210,11 +219,11 @@ export function PerformanceCarousel() {
             <Slider ref={sliderRef} {...settings}>
               {concerts.map((performance) => (
                 <div key={performance.id} className="px-3">
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
+                  <div className="relative w-full aspect-[2/3] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 group">
                     <img
                       src={performance.image}
                       alt={performance.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       draggable="false"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

@@ -160,6 +160,12 @@ export function ConcertList({ onViewAll, onSelectConcert }: ConcertListProps) {
             .concert-list-carousel .slick-slider {
               padding: 0 48px;
             }
+            .concert-list-carousel .slick-slide img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
             @media (min-width: 768px) {
               .concert-list-carousel .slick-slider {
                 padding: 0 56px;
@@ -187,11 +193,11 @@ export function ConcertList({ onViewAll, onSelectConcert }: ConcertListProps) {
                 className="group cursor-pointer"
                 onClick={() => onSelectConcert?.(concert.id)}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow" style={{ height: '66vh' }}>
+                <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow w-full aspect-[2/3]">
                   <img
                     src={concert.image}
                     alt={concert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     draggable="false"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

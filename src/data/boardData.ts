@@ -50,7 +50,7 @@ export const news: NewsItem[] = [
   },
   {
     no: 2,
-    title: "아이들과 함꼐 자라는 무대, 대전 오페라단 지은주 단장의 사명",
+    title: "아이들과 함께 자라는 무대, 대전 오페라단 지은주 단장의 사명",
     publisher: "충청신문",
     date: "2025-09-17",
     url: "https://www.dailycc.net/news/articleView.html?idxno=849826"
