@@ -15,7 +15,6 @@ import { Sponsorship } from './components/Sponsorship';
 import { Inquiry } from './components/Inquiry';
 import { TermsOfUse } from './components/TermsOfUse';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
-import { Admin } from './components/Admin';
 import { useEffect, useState } from 'react';
 import { concerts } from './data/concertData';
 
