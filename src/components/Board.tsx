@@ -45,8 +45,14 @@ export function Board({
     );
   };
 
-  const filteredNotices = filterByTitle(notices, noticeSearchQuery);
-  const filteredNews = filterByTitle(news, newsSearchQuery);
+  const filteredNotices = filterByTitle(
+    [...notices].sort((a, b) => b.date.localeCompare(a.date)),
+    noticeSearchQuery
+  );
+  const filteredNews = filterByTitle(
+    [...news].sort((a, b) => b.date.localeCompare(a.date)),
+    newsSearchQuery
+  );
 
   // Pagination logic
   const getPaginatedData = (data: any[], page: number) => {
@@ -181,14 +187,14 @@ export function Board({
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {paginatedNotices.map((notice) => (
+              {paginatedNotices.map((notice, index) => (
                 <tr
                   key={notice.no}
                   className="hover:bg-gray-50 transition-colors cursor-pointer"
                   onClick={() => onSelectNotice && onSelectNotice(notice.no)}
                 >
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
-                    {notice.no}
+                    {(noticePage - 1) * itemsPerPage + index + 1}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 text-center">
                     {notice.title}
@@ -197,7 +203,7 @@ export function Board({
                     {notice.date}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600 text-center">
-                    {viewCounts[`notice-${notice.no}`] || notice.views}
+                    {viewCounts[`notice-${notice.no}`] || 0}
                   </td>
                 </tr>
               ))}
@@ -280,13 +286,15 @@ export function Board({
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {paginatedNews.map((item) => (
+              {paginatedNews.map((item, index) => (
                 <tr
                   key={item.no}
                   className="hover:bg-gray-50 transition-colors cursor-pointer"
                   onClick={() => window.open(item.url, '_blank')}
                 >
-                  <td className="px-6 py-4 text-sm text-gray-600 text-center">{item.no}</td>
+                  <td className="px-6 py-4 text-sm text-gray-600 text-center">
+                    {(newsPage - 1) * itemsPerPage + index + 1}
+                  </td>
                   <td className="px-6 py-4 text-sm text-gray-800 text-center">
                     {item.title}
                   </td>

@@ -155,10 +155,10 @@ export function Inquiry() {
             <h3 className="mb-4 text-[var(--color-opera-burgundy)]">상세 문의</h3>
             <div className="space-y-2 text-gray-700">
               <p>
-                <strong>전화:</strong> 010-6353-9008 (평일 09:00 - 18:00)
+                <strong>전화:</strong> 010-3062-9080 (평일 09:00 - 18:00)
               </p>
               <p>
-                <strong>이메일:</strong> daejeonopera@gmail.com
+                <strong>이메일:</strong> dj.opera1988@gmail.com
               </p>
             </div>
           </div>

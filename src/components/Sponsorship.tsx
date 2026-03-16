@@ -292,7 +292,7 @@ export function Sponsorship() {
                   <h4 className="text-lg font-bold mb-2 text-gray-800">후원 및 기부 문의</h4>
                   <p className="text-gray-700 flex items-center justify-center md:justify-start gap-2 text-lg">
                     <Phone className="w-5 h-5 text-[var(--color-opera-gold)]" />
-                    담당자: <span className="font-bold text-[var(--color-opera-burgundy)]">010-6353-9008</span>
+                    담당자: <span className="font-bold text-[var(--color-opera-burgundy)]">010-3062-9080</span>
                   </p>
                 </div>
               </div>

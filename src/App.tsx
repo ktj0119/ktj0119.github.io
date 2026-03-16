@@ -25,7 +25,18 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedConcertId, setSelectedConcertId] = useState<number | null>(null);
   const [selectedNoticeId, setSelectedNoticeId] = useState<number | null>(null);
-  const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
+  
+  // Initialize viewCounts from localStorage
+  const [viewCounts, setViewCounts] = useState<Record<string, number>>(() => {
+    const saved = localStorage.getItem('opera_site_view_counts');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Save viewCounts to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('opera_site_view_counts', JSON.stringify(viewCounts));
+  }, [viewCounts]);
+
   const [previousPage, setPreviousPage] = useState<Page>('home'); // Track previous page for back navigation
   const [isPhotoGalleryOpen, setIsPhotoGalleryOpen] = useState(false);
   const [scrollToBoardNews, setScrollToBoardNews] = useState(false);
@@ -191,6 +202,7 @@ export default function App() {
             noticeId={selectedNoticeId}
             onBack={() => handleNavigate('board')}
             onViewIncrement={handleIncrementViewCount}
+            viewCounts={viewCounts}
           />
         )}
         {currentPage === 'sponsorship' && <Sponsorship />}

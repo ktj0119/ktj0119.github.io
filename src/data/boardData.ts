@@ -1,13 +1,14 @@
 // Centralized data source for Notice and News
-
 export interface NoticeItem {
   no: number;
   title: string;
   date: string;
-  views: number;
   content?: string;
   author?: string;
   isPinned?: boolean;
+  imageUrl?: string;
+  attachmentUrl?: string;
+  attachmentName?: string;
 }
 
 export interface NewsItem {
@@ -24,7 +25,6 @@ export const notices: NoticeItem[] = [
     no: 1,
     title: "홈페이지 개편 안내",
     date: "2026-03-08",
-    views: 0,
     author: "관리자",
     isPinned: true,
     content: `안녕하세요, 대전오페라단입니다.
@@ -36,6 +36,21 @@ export const notices: NoticeItem[] = [
 최대한 빠른 시일 내에 처리하여 더 좋은 서비스로 여러분께 제공하겠습니다.
 
 감사합니다.`
+  }, 
+  {
+    no: 2,
+    title: "2026 대전오페라단 오디션 공고",
+    date: "2026-03-16",
+    author: "관리자",
+    isPinned: true,
+    content: `안녕하세요. 2026 대전오페라단 창작오페라 <이상의 날개> 오디션을 진행합니다.
+    
+    하단에 상세사항에 따라 신청해주세요.
+    
+    많은 관심과 참여 부탁드립니다.`,
+    imageUrl: "/notices/audition.png",
+    attachmentUrl: "/notices/2026오디션공고.hwp",
+    attachmentName: "2026 대전오페라단 오디션 공고.hwp"
   }
 ];
 

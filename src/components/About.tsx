@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FileText } from "lucide-react";
 import { KakaoMap } from "./KakaoMap";
+import { historyData } from "../data/historyData";
+import { HistoryModal } from "./HistoryModal";
 
 export function About() {
   const [activeSection, setActiveSection] = useState("introduction");
+  const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 
   const sections = [
     { id: "introduction", label: "소개" },
@@ -103,10 +106,9 @@ export function About() {
             {/* Director Portrait */}
             <div className="float-left mr-6 mb-4">
               <img
-                src="/images/intro_propile.png"
+                src="/images/director_propile.jpg"
                 alt="단장 지은주"
-                className="w-32 h-32 object-cover rounded-lg shadow-md"
-              />
+                className="w-48 h-120 object-cover rounded-lg shadow-md"/>
             </div>
             <div className="space-y-4 text-gray-700">
               <p className="italic">
@@ -135,55 +137,35 @@ export function About() {
         </section>
 
         {/* History Section */}
-        <section id="history" className="mb-16 scroll-mt-20">
+        <section id="history" className="mb-16 scroll-mt-20 relative">
           <h2 className="text-3xl text-[var(--color-opera-burgundy)] mb-6 border-b-2 border-[var(--color-opera-gold)] pb-2">
             연혁
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="border-l-4 border-[var(--color-opera-burgundy)] pl-6 py-2">
-              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                2025
-              </h3>
-              <ul className="space-y-1 text-gray-700">
-                <li>• 대전오페라단과 함께하는 코레일 신년음악회</li>
-                <li>• 제36회 정기공연 오페라 '나비부인'</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
-              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                2024
-              </h3>
-              <ul className="space-y-1 text-gray-700">
-                <li>• 대전오페라단과 함께하는 코레일 음악회</li>
-                <li>• 공연예술창작신작 올해의 신작 창작오페라 '이상의 날개'</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
-              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                2023
-              </h3>
-              <ul className="space-y-1 text-gray-700">
-                <li>• 제35회 정기공연 오페라 '카발레리아 루스티카나&팔리아치'</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-[var(--color-opera-gold)] pl-6 py-2">
-              <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
-                2022
-              </h3>
-              <ul className="space-y-1 text-gray-700">
-                <li>• 렉쳐콘서트 오페라 '리골레또'</li>
-                <li>• 제1회 대전오페라단 국제 성악 콩쿨 개최</li>
-                <li>• 제34회 정기공연 오페라 '마술피리'</li>
-                <li>• 창작오페라 '이상의날개' 쇼케이스</li>
-              </ul>
-            </div>
+            {historyData.slice(0, 4).map((history, index) => (
+              <div 
+                key={history.year} 
+                className={`border-l-4 pl-6 py-2 ${
+                  index % 2 === 0 ? 'border-[var(--color-opera-burgundy)]' : 'border-[var(--color-opera-gold)]'
+                }`}
+              >
+                <h3 className="text-xl text-[var(--color-opera-burgundy)] mb-2">
+                  {history.year}
+                </h3>
+                <ul className="space-y-1 text-gray-700">
+                  {history.items.map((item, idx) => (
+                    <li key={idx}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           {/* <div className="flex justify-center mt-12">
-            <button className="flex items-center gap-2 px-8 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors">
+            <button 
+              onClick={() => setIsHistoryModalOpen(true)}
+              className="flex items-center gap-2 px-8 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors"
+            >
               <FileText className="w-4 h-4" />
               <span>전체 연혁 보기</span>
             </button>
@@ -288,6 +270,11 @@ export function About() {
           </div>
         </section>
       </main>
+
+      <HistoryModal 
+        isOpen={isHistoryModalOpen} 
+        onClose={() => setIsHistoryModalOpen(false)} 
+      />
     </div>
   );
 }

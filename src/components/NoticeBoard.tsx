@@ -10,13 +10,13 @@ export function NoticeBoard({ onSelectNotice, onViewAll }: NoticeBoardProps) {
   // Get top 2 most recent pinned notices
   const pinnedNotices = notices
     .filter(notice => notice.isPinned === true)
-    .sort((a, b) => b.no - a.no) // Sort by number descending (most recent first)
+    .sort((a, b) => b.date.localeCompare(a.date)) // Sort by date descending (most recent first)
     .slice(0, 2);
 
   // Get top 2 most recent regular (non-pinned) notices
   const regularNotices = notices
     .filter(notice => !notice.isPinned)
-    .sort((a, b) => b.no - a.no) // Sort by number descending (most recent first)
+    .sort((a, b) => b.date.localeCompare(a.date)) // Sort by date descending (most recent first)
     .slice(0, 2);
 
   // Combine: pinned first, then regular

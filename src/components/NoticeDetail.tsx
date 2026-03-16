@@ -1,23 +1,25 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Eye } from "lucide-react";
+import { ArrowLeft, Eye, Paperclip, Download } from "lucide-react";
 import { notices } from "../data/boardData";
 
 interface NoticeDetailProps {
   noticeId: number;
   onBack: () => void;
   onViewIncrement: (id: string) => void;
+  viewCounts: Record<string, number>;
 }
 
-export function NoticeDetail({ noticeId, onBack, onViewIncrement }: NoticeDetailProps) {
-  const [views, setViews] = useState(0);
-
+export function NoticeDetail({ 
+  noticeId, 
+  onBack, 
+  onViewIncrement, 
+  viewCounts = {} 
+}: NoticeDetailProps) {
   // Find the notice from centralized data
   const notice = notices.find(n => n.no === noticeId) || notices[0];
 
   useEffect(() => {
     // Increment view count when component mounts
-    const currentViews = views + 1;
-    setViews(currentViews);
     onViewIncrement(`notice-${noticeId}`);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noticeId]); // Only re-run when noticeId changes
@@ -51,13 +53,34 @@ export function NoticeDetail({ noticeId, onBack, onViewIncrement }: NoticeDetail
             </div>
             <div className="flex items-center gap-1">
               <Eye className="w-4 h-4" />
-              <span>조회수: {views}</span>
+              <span>조회수: {viewCounts[`notice-${noticeId}`] || 0}</span>
             </div>
           </div>
         </div>
 
+        {/* Attachment Section */}
+        {notice.attachmentUrl && (
+          <div className="px-8 py-3 bg-gray-50 border-b border-gray-200 flex items-center gap-4">
+            <div className="flex items-center gap-2 text-sm text-gray-600">
+              <Paperclip className="w-4 h-4" />
+              <span className="font-medium">첨부파일:</span>
+            </div>
+            <a
+              href={notice.attachmentUrl}
+              download={notice.attachmentName || "attachment"}
+              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+            >
+              <span className="truncate max-w-xs md:max-w-md">
+                {notice.attachmentName || "첨부파일 다운로드"}
+              </span>
+              <Download className="w-4 h-4" />
+            </a>
+          </div>
+        )}
+
         {/* Content */}
         <div className="px-8 py-8">
+          {/* Optional Image */}
           <div className="prose max-w-none">
             {notice.content ? (
               <p className="text-gray-700 whitespace-pre-line leading-relaxed">
@@ -65,6 +88,15 @@ export function NoticeDetail({ noticeId, onBack, onViewIncrement }: NoticeDetail
               </p>
             ) : (
               <p className="text-gray-700">내용이 준비 중입니다.</p>
+            )}
+            {notice.imageUrl && (
+              <div className="mb-12">
+                <img
+                  src={notice.imageUrl}
+                  alt={notice.title}
+                  className="w-full max-h-[800px] object-contain rounded-lg mx-auto"
+                />
+              </div>
             )}
           </div>
         </div>
