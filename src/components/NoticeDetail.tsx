@@ -59,43 +59,54 @@ export function NoticeDetail({
         </div>
 
         {/* Attachment Section */}
-        {notice.attachmentUrl && (
-          <div className="px-8 py-3 bg-gray-50 border-b border-gray-200 flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <Paperclip className="w-4 h-4" />
-              <span className="font-medium">첨부파일:</span>
+        {notice.attachmentUrl && notice.attachmentUrl.length > 0 && (
+          <div className="px-8 py-3 bg-gray-50 border-b border-gray-200">
+            <div className="flex flex-col gap-2">
+              {notice.attachmentUrl.map((url, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <Paperclip className="w-4 h-4" />
+                    <span className="font-medium">첨부파일 {notice.attachmentUrl!.length > 1 ? index + 1 : ""}:</span>
+                  </div>
+                  <a
+                    href={url}
+                    download={notice.attachmentName?.[index] || `attachment-${index + 1}`}
+                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                  >
+                    <span className="truncate max-w-xs md:max-w-md">
+                      {notice.attachmentName?.[index] || "첨부파일 다운로드"}
+                    </span>
+                    <Download className="w-4 h-4" />
+                  </a>
+                </div>
+              ))}
             </div>
-            <a
-              href={notice.attachmentUrl}
-              download={notice.attachmentName || "attachment"}
-              className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors"
-            >
-              <span className="truncate max-w-xs md:max-w-md">
-                {notice.attachmentName || "첨부파일 다운로드"}
-              </span>
-              <Download className="w-4 h-4" />
-            </a>
           </div>
         )}
 
         {/* Content */}
         <div className="px-8 py-8">
-          {/* Optional Image */}
           <div className="prose max-w-none">
             {notice.content ? (
-              <p className="text-gray-700 whitespace-pre-line leading-relaxed">
+              <p className="text-gray-700 whitespace-pre-line leading-relaxed mb-8">
                 {notice.content}
               </p>
             ) : (
-              <p className="text-gray-700">내용이 준비 중입니다.</p>
+              <p className="text-gray-700 mb-8">내용이 준비 중입니다.</p>
             )}
-            {notice.imageUrl && (
-              <div className="mb-12">
-                <img
-                  src={notice.imageUrl}
-                  alt={notice.title}
-                  className="w-full max-h-[800px] object-contain rounded-lg mx-auto"
-                />
+            
+            {/* Optional Images */}
+            {notice.imageUrl && notice.imageUrl.length > 0 && (
+              <div className="flex flex-col gap-8 mt-8">
+                {notice.imageUrl.map((url, index) => (
+                  <div key={index} className="w-full">
+                    <img
+                      src={url}
+                      alt={`${notice.title} - 이미지 ${index + 1}`}
+                      className="w-full max-h-[1200px] object-contain rounded-lg mx-auto shadow-sm"
+                    />
+                  </div>
+                ))}
               </div>
             )}
           </div>

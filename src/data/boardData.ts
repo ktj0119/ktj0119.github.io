@@ -6,9 +6,9 @@ export interface NoticeItem {
   content?: string;
   author?: string;
   isPinned?: boolean;
-  imageUrl?: string;
-  attachmentUrl?: string;
-  attachmentName?: string;
+  imageUrl?: string[];
+  attachmentUrl?: string[];
+  attachmentName?: string[];
 }
 
 export interface NewsItem {
@@ -45,12 +45,17 @@ export const notices: NoticeItem[] = [
     isPinned: true,
     content: `안녕하세요. 2026 대전오페라단 창작오페라 <이상의 날개> 오디션을 진행합니다.
     
-    하단에 상세사항에 따라 신청해주세요.
+    안내와 신청서, 악보는 상단의 첨부파일을 다운로드하시면 확인하실 수 있습니다.
+    
+    궁금한 사항이 있으실 시 연락주시면 답변드리겠습니다.
     
     많은 관심과 참여 부탁드립니다.`,
-    imageUrl: "/notices/audition.png",
-    attachmentUrl: "/notices/2026오디션공고.hwp",
-    attachmentName: "2026 대전오페라단 오디션 공고.hwp"
+
+    imageUrl: ["/notices/audition.png"],
+    attachmentUrl: ["/notices/2026오디션공고.hwp",
+      "/notices/오디션 악보.zip"],
+    attachmentName: ["2026 대전오페라단 오디션 신청서.hwp",
+      "2026 대전오페라단 오디션 악보.zip"]
   }
 ];
 
