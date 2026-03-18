@@ -36,7 +36,7 @@ export const notices: NoticeItem[] = [
 최대한 빠른 시일 내에 처리하여 더 좋은 서비스로 여러분께 제공하겠습니다.
 
 감사합니다.`
-  }, 
+  },
   {
     no: 2,
     title: "2026 대전오페라단 오디션 공고",
@@ -53,9 +53,15 @@ export const notices: NoticeItem[] = [
 
     imageUrl: ["/notices/audition.png"],
     attachmentUrl: ["/notices/2026오디션공고.hwp",
-      "/notices/오디션 악보.zip"],
+      "/notices/회한의 장(김해경)_260313_165253.pdf",
+      "/notices/거울(이상).pdf",
+      "/notices/꽃나무(변동림).pdf",
+      "/notices/프롤레타리아의노래(친구J).pdf"],
     attachmentName: ["2026 대전오페라단 오디션 신청서.hwp",
-      "2026 대전오페라단 오디션 악보.zip"]
+      "회한의 장(김해경).pdf",
+      "거울(이상).pdf",
+      "꽃나무(변동림).pdf",
+      "프롤레타리아의노래(친구J).pdf"]
   }
 ];
 
