@@ -64,7 +64,7 @@ export function Footer({ onNavigate }: FooterProps) {
             </h3>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/daejeonopera/"
+                href="https://www.facebook.com/share/18JYHPqqEH/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 p-2 rounded-full hover:bg-[var(--color-opera-burgundy)] transition-colors"
@@ -72,7 +72,7 @@ export function Footer({ onNavigate }: FooterProps) {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.instagram.com/daejeon_opera_/"
+                href="https://www.instagram.com/dj.opera1988?igsh=YnM3NnQ2dG9pdGZj&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 p-2 rounded-full hover:bg-[var(--color-opera-burgundy)] transition-colors"
