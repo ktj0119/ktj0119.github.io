@@ -56,12 +56,16 @@ export const notices: NoticeItem[] = [
       "/notices/회한의 장(김해경)_260313_165253.pdf",
       "/notices/거울(이상).pdf",
       "/notices/꽃나무(변동림).pdf",
-      "/notices/프롤레타리아의노래(친구J).pdf"],
+      "/notices/프롤레타리아의노래(친구J).pdf",
+      "/notices/해경과 금홍의 노래(피아노).pdf",
+      "/notices/오감도(피아노).pdf"],
     attachmentName: ["2026 대전오페라단 오디션 신청서.hwp",
       "회한의 장(김해경).pdf",
       "거울(이상).pdf",
       "꽃나무(변동림).pdf",
-      "프롤레타리아의노래(친구J).pdf"]
+      "프롤레타리아의노래(친구J).pdf",
+      "해경과 금홍의 노래(피아노).pdf", 
+      "오감도(피아노).pdf"]
   }
 ];
 
