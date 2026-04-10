@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { FileText } from "lucide-react";
 import { KakaoMap } from "./KakaoMap";
 import { historyData } from "../data/historyData";
-import { HistoryModal } from "./HistoryModal";
 
-export function About() {
+interface AboutProps {
+  onNavigate?: (page: any) => void;
+}
+
+export function About({ onNavigate }: AboutProps) {
   const [activeSection, setActiveSection] = useState("introduction");
-  const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 
   const sections = [
     { id: "introduction", label: "소개" },
@@ -154,22 +156,25 @@ export function About() {
                 </h3>
                 <ul className="space-y-1 text-gray-700">
                   {history.items.map((item, idx) => (
-                    <li key={idx}>• {item}</li>
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-1.5 flex-shrink-0">•</span>
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                    </li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
 
-          {/* <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-12">
             <button 
-              onClick={() => setIsHistoryModalOpen(true)}
+              onClick={() => onNavigate?.('history')}
               className="flex items-center gap-2 px-8 py-3 bg-[var(--color-opera-burgundy)] text-white rounded hover:bg-opacity-90 transition-colors"
             >
               <FileText className="w-4 h-4" />
               <span>전체 연혁 보기</span>
             </button>
-          </div> */}
+          </div>
         </section>
 
         {/* Organization Chart Section */}
@@ -270,11 +275,6 @@ export function About() {
           </div>
         </section>
       </main>
-
-      <HistoryModal 
-        isOpen={isHistoryModalOpen} 
-        onClose={() => setIsHistoryModalOpen(false)} 
-      />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { NoticeBoard } from './components/NoticeBoard';
 import { News } from './components/News';
 import { Footer } from './components/Footer';
 import { About } from './components/About';
+import { History } from './components/History';
 import { Concerts } from './components/Concerts';
 import { ConcertDetail } from './components/ConcertDetail';
 import { PhotoGalleryModal } from './components/PhotoGalleryModal';
@@ -18,7 +19,7 @@ import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { useEffect, useState } from 'react';
 import { concerts } from './data/concertData';
 
-type Page = 'home' | 'about' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
+type Page = 'home' | 'about' | 'history' | 'concerts' | 'concert-detail' | 'board' | 'notice-detail' | 'sponsorship' | 'inquiry' | 'admin' | 'carousel-demo' | 'terms-of-use' | 'privacy-policy';
 
 // Main App Component
 export default function App() {
@@ -75,6 +76,7 @@ export default function App() {
       const validPages: Page[] = [
         'home',
         'about',
+        'history',
         'concerts',
         'concert-detail',
         'board',
@@ -174,7 +176,8 @@ export default function App() {
             />
           </>
         )}
-        {currentPage === 'about' && <About />}
+        {currentPage === 'about' && <About onNavigate={handleNavigate} />}
+        {currentPage === 'history' && <History onBack={() => handleNavigate('about')} />}
         {currentPage === 'concerts' && (
           <Concerts onSelectConcert={handleSelectConcert} />
         )}
