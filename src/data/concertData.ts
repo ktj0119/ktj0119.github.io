@@ -17,6 +17,25 @@ export interface Concert {
 export const concerts: Concert[] = [
   {
     id: 1,
+    title: "리골레토",
+    date: "2026-09-11 ~ 2026-09-13",
+    venue: "대전예술의전당 아트홀",
+    image: "images/concert/2026/rigoletto/poster.jpg",
+    description: `만토바 궁정의 어릿광대인 리골레토는 꼽추인데다 다리도 불편하다.
+그에게는 남몰래 애지중지 키우는 외동딸 질다가 있다.
+질다는 교회에 가는 길 외에는 바깥출입이 금지되어 있다.
+하지만 호색한인두카는 교회에서 질다를 본 뒤 그녀에게 흥미를 느낀다. 두카는 리골레토가 외출한 사이 가난한 학생으로 변장하고 몰래 집에 들어와 질다에게 사랑을 고백한다. 청년에게 마음을 빼앗긴 질다는 설레는 마음을 감추지 못한다. 그날 밤 두카의 가신들이 리골레토의 집에 숨어 들어와 질다를 유괴한다.
+공작의 궁정에서 납치된 딸과 다음 날 재회한 리골레토는 공작에게 저주를 퍼부으며 복수를 다짐한다. 그는 살인 청부업자에게 공작을 살해해 달라고 의뢰하지만, 이 말을 엿들은 질다는 남장을 한 채 공작 대신 칼을 맞는다.
+죽어가는 질다를 뒤늦게 발견한 리골레토는 딸을 끌어안고 "아, 그 저주"라고 외치며 쓰러진다.`,
+    images: [
+      "images/concert/2026/rigoletto/pic1.jpg",
+      "images/concert/2026/rigoletto/pic2.jpg",
+      "images/concert/2026/rigoletto/pic3.jpg",
+      "images/concert/2026/rigoletto/pic4.jpg"
+    ]
+  },
+  {
+    id: 2,
     title: "나비부인",
     date: "2025-08-29 ~ 2025-08-31",
     venue: "대전예술의전당 아트홀",
@@ -25,18 +44,18 @@ export const concerts: Concert[] = [
 
 1900년 일본의 나가사키를 배경으로 펼쳐지는 오페라 <나비부인>은 돌아오지 않을 남편을 홀로 기다리다 비극적 최후를 맞이하는 초초상의 이야기입니다. 나가사키에 주둔하고 있던 미 해군 중위 핑커턴(Pinkerton)은 집안이 몰락하여 게이샤가 된 15살의 초초상(Cio-Cio-San) 과 결혼합니다. 얼마 후 복무 기간이 끝난 핑커턴은 곧 돌아오겠다는 말을 남기고 미국으로 돌아가 버립니다. 3년이 지나도 그가 돌아오지 않자 주위 사람들은 그녀에게 재혼을 권하지만 초초상은 이를 거절합니다. 그러던 어느 날 핑커턴은 미국인 아내 케이트(Kate)와 함께 초초상 앞에 나타나 아들을 데려가겠다고 말합니다. 좌절한 초초상은 아들과 마지막 인사를 나누고 스스로 자결합니다.`,
     images: [
-    "images/concert/2025/madama butterfly/pic1.jpg",
-    "images/concert/2025/madama butterfly/pic2.jpg",
-    "images/concert/2025/madama butterfly/pic3.jpg"
-  ]
+      "images/concert/2025/madama butterfly/pic1.jpg",
+      "images/concert/2025/madama butterfly/pic2.jpg",
+      "images/concert/2025/madama butterfly/pic3.jpg"
+    ]
   },
-{
-  id: 2,
+  {
+    id: 3,
     title: "이상의 날개",
-      date: "2024-03-08 ~ 2024-03-10",
-        venue: "국립극장 달오름",
-          image: "images/concert/2024/The Wing of Yi Sang/poster.jpg",
-            description: `“어떤 고통에도 희망의 날개를 접지 않는 자, 마침내 그 희망의 가장 가까이 닿을 것이다”. 이미 죽은 사람처럼, 자신을 ‘박제가 되어버린 천재’라고 자처했던 김해경(시인 이상)
+    date: "2024-03-08 ~ 2024-03-10",
+    venue: "국립극장 달오름",
+    image: "images/concert/2024/The Wing of Yi Sang/poster.jpg",
+    description: `“어떤 고통에도 희망의 날개를 접지 않는 자, 마침내 그 희망의 가장 가까이 닿을 것이다”. 이미 죽은 사람처럼, 자신을 ‘박제가 되어버린 천재’라고 자처했던 김해경(시인 이상)
             
             1936년 식민지 도시 경성. 
             희망 없는 나날. 해경의 괴로움을 아는 것은 자신이 마주하는 거울 속 세계에 존재하는 분신, 이상 뿐이다. 이상은 해경을 만날 때마다 자살을 권유한다. 이 가혹한 세계를 탈출하는 방법은 죽음밖에 없다고. 하지만 해경은 아직은 도망가지 않겠다며 거부한다.  자신이 겪는 절망을 문학으로 똑똑히 기록하고 싶다고. 
@@ -48,16 +67,16 @@ export const concerts: Concert[] = [
 
             홀로 남은 해경에게 다가온 한 여자. 그의 시를 사랑하는 변동림이 나타나고, 마침내 해경은 금홍이와의 생활을 청산하고 동림과 새로운 출발을 꿈꾼다. 그러나 행복한 순간도 잠시. 결혼식장에서 행패를 부리는 일본인을 해경이 폭행하는 사건이 벌어지고, 이 일로 해경은 경성을 떠나 바다를 건너간다.
             비록 피난처이긴 하나 그토록 갈망했던 도시 동경에 도착한 해경. 하지만 곧 자신이 품었던 환상이 착각이었음을 깨닫고, 급기야 오랫동안 멈춰 있던 각혈까지 재발한다. 그렇게 환멸에 빠져 있는 해경 앞에 이상이 또 다시 나타나는데...`,
-              images: [
-                "images/concert/2024/The Wing of Yi Sang/pic1.jpg",
-                "images/concert/2024/The Wing of Yi Sang/pic2.jpg", 
-                "images/concert/2024/The Wing of Yi Sang/pic3.jpg",
-              ],
-              videoId: "QZfyRYg4HfI",
-              videoTitle: "24.03.08 15:00 공연"
+    images: [
+      "images/concert/2024/The Wing of Yi Sang/pic1.jpg",
+      "images/concert/2024/The Wing of Yi Sang/pic2.jpg",
+      "images/concert/2024/The Wing of Yi Sang/pic3.jpg",
+    ],
+    videoId: "QZfyRYg4HfI",
+    videoTitle: "24.03.08 15:00 공연"
   },
   {
-    id:3,
+    id: 4,
     title: "카발레리아 루스티카나 & 팔리아치",
     date: "2023-06-09 ~ 2023-06-11",
     venue: "대전예술의전당 아트홀",
@@ -66,9 +85,9 @@ export const concerts: Concert[] = [
     시대와 외형을 그대로 표현하지 않고, 내면의 실제와 타락한 현실 그리고 엉킨 관계를 보여줌으로써 현실의 객관적인 모습을 통해
     우리 자신을 반성하고 고찰하는 작품을 무대 위에서 현실의 참상과 인간의 본성을 충격적이면서도 아름답게 그려낸다.`,
     images: [
-        "images/concert/2023/Cavalleria/pic1.jpg",
-        "images/concert/2023/Cavalleria/pic2.jpg",
-        "images/concert/2023/Cavalleria/pic3.jpg"
+      "images/concert/2023/Cavalleria/pic1.jpg",
+      "images/concert/2023/Cavalleria/pic2.jpg",
+      "images/concert/2023/Cavalleria/pic3.jpg"
     ],
     videoId: "TM6DZT2zr6I",
     videoTitle: "23.06.10 15:00 공연"
