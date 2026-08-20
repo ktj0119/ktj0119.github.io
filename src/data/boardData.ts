@@ -73,20 +73,34 @@ export const notices: NoticeItem[] = [
 export const news: NewsItem[] = [
   {
     no: 1,
+    title: "대전시가족센터·대전오페라단 업무협약",
+    publisher: "중도일보",
+    date: "2026-08-14",
+    url: "https://www.joongdo.co.kr/web/view.php?key=20260817010004602"
+  },
+  {
+    no: 2,
+    title: "대전가족센터·오페라단, 다문화·위기가족 공연 지원 확대",
+    publisher: "타임뉴스",
+    date: "2026-08-14",
+    url: "https://www.timenews.co.kr/article/1702598"
+  },
+  {
+    no: 3,
     title: "대전교육청, 학교로 찾아가는 예술무대 업무협약",
     publisher: "한국교육신문",
     date: "2026-02-25",
     url: "https://www.hangyo.com/news/article.html?no=106857"
   },
   {
-    no: 2,
+    no: 4,
     title: "아이들과 함께 자라는 무대, 대전 오페라단 지은주 단장의 사명",
     publisher: "충청신문",
     date: "2025-09-17",
     url: "https://www.dailycc.net/news/articleView.html?idxno=849826"
   },
   {
-    no: 3,
+    no: 5,
     title: "벛꽃 아래 피어나 슬픈 사랑, 걸작 오페라를 만나다",
     publisher: "문화저널 맥",
     date: "2025-08-10",
